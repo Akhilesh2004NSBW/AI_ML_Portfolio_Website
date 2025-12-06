@@ -1,254 +1,705 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
     <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Akhilesh Pant | AI & ML Engineer</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <title>Akhilesh Pant — AI · ML · Cybersecurity Engineer</title>
+        <meta name="description"
+            content="Akhilesh Pant — AI, ML, Cybersecurity engineer. Portfolio, projects, research and articles.">
+
+        <!-- Google Font -->
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap"
+            rel="stylesheet">
+
         <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-        body { background: #0a0a0a; color: #fff; line-height: 1.6; }
-        header { position: fixed; top: 0; width: 100%; padding: 20px 50px; display: flex; justify-content: space-between; align-items: center; background: rgba(0,0,0,0.7); backdrop-filter: blur(10px); z-index: 1000; }
-        header h1 { font-size: 24px; font-weight: 600; color: #00eaff; }
-        nav a { margin-left: 20px; color: #fff; text-decoration: none; font-size: 16px; transition: .3s; }
-        nav a:hover { color: #00eaff; }
-        section { padding: 100px 50px; }
-        .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; }
-        .hero h2 { font-size: 48px; font-weight: 700; margin-bottom: 10px; }
-        .hero h3 { font-size: 24px; margin-bottom: 20px; color: #00eaff; }
-        .hero p { max-width: 600px; font-size: 18px; margin-bottom: 20px; }
-        .btn { padding: 12px 25px; background: #00eaff; color: #000; text-decoration: none; font-weight: 600; border-radius: 6px; transition: .3s; }
-        .btn:hover { background: #fff; }
-        .section-title { font-size: 32px; font-weight: 700; margin-bottom: 30px; color: #00eaff; }
-        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
-        .project-card { background: #111; padding: 20px; border-radius: 10px; border: 1px solid #222; transition: .3s; }
-        .project-card:hover { transform: translateY(-5px); border-color: #00eaff; }
-        .project-card h4 { margin-bottom: 10px; font-size: 20px; font-weight: 600; }
-        .project-card p { font-size: 15px; margin-bottom: 10px; color: #ccc; }
-        .links a { margin-right: 10px; text-decoration: none; color: #00eaff; }
-        .certificates, .research { margin-top: 30px; }
-        .cert-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 25px;
-    margin-top: 20px;
-}
+    :root{
+      --bg-900:#060607;
+      --card:#07080a;
+      --glass: rgba(255,255,255,0.03);
+      --muted: #bdbdbd;
+      --accent: #00eaff;
+      --accent-2: #7c5cff;
+      --glass-blur: 12px;
+      --max-width:1200px;
+      --radius:14px;
+      --muted-2: #98a0aa;
+    }
 
-.cert-card {
-    background: #111;
-    padding: 15px;
-    border-radius: 10px;
-    text-align: center;
-    border: 1px solid #222;
-    transition: .3s;
-}
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:
+        radial-gradient(1200px 600px at 8% 10%, rgba(0,234,255,0.03), transparent 8%),
+        radial-gradient(1000px 500px at 92% 85%, rgba(124,92,255,0.02), transparent 8%),
+        var(--bg-900);
+      color:#dfe9f3;
+      font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.65;
+      -webkit-tap-highlight-color:transparent;
+      -webkit-font-smoothing:antialiased;
+      padding-bottom:80px;
+    }
 
-.cert-card:hover {
-    transform: translateY(-5px);
-    border-color: #00eaff;
-}
+    a{color:var(--accent);text-decoration:none}
+    .container{max-width:var(--max-width);margin:64px auto;padding:28px;position:relative}
 
-.cert-card img {
-    width: 100%;
-    border-radius: 10px;
-    margin-bottom: 10px;
-}
+    /* TOPBAR */
+    .topbar{
+      position:fixed;left:0;right:0;top:12px;margin:0 auto;max-width:var(--max-width);height:60px;
+      display:flex;align-items:center;justify-content:space-between;padding:10px 18px;
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:12px;border:1px solid rgba(255,255,255,0.04);
+      backdrop-filter: blur(6px);
+      box-shadow:0 8px 36px rgba(2,6,23,0.6);
+      z-index:40;
+    }
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{
+      width:46px;height:46px;border-radius:10px;
+      background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      display:flex;align-items:center;justify-content:center;font-weight:800;color:#002;box-shadow:0 8px 30px rgba(0,0,0,0.6);
+      font-family:monospace;
+      font-size:16px;
+    }
+    .site-title{font-weight:700;color:#eaffff}
+    .navlinks{display:flex;gap:14px;align-items:center}
+    .navlinks a{font-size:14px;color:var(--muted);padding:8px 12px;border-radius:8px;transition:all .18s}
+    .navlinks a:hover{color:#001;background:linear-gradient(90deg,var(--accent),var(--accent-2))}
 
-#contact a {
-    color: #00eaff;
-    text-decoration: none;
-    font-weight: 600;
-    transition: .3s;
-}
+    /* HERO - full width */
+    .hero{
+      margin-top:84px;
+      border-radius:14px;
+      overflow:hidden;
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border:1px solid rgba(255,255,255,0.03);
+      backdrop-filter: blur(var(--glass-blur));
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:20px;padding:34px;
+      align-items:center;
+    }
 
-#contact a:hover {
-    color: #fff;
-}
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1fr 420px;
+      gap:24px;
+      align-items:center;
+    }
+    @media (max-width:980px){ .hero-grid{grid-template-columns:1fr} .hero-right{order:2} }
 
+    .kicker{font-size:13px;color:var(--muted);display:flex;gap:8px;align-items:center}
+    .title{font-size:34px;color:var(--accent);margin:12px 0 8px;font-weight:800;letter-spacing:-0.4px}
+    .subtitle{color:var(--muted);margin-bottom:12px;font-size:15px;max-width:70ch}
+    .hero-cta{display:flex;gap:12px;margin-top:12px;flex-wrap:wrap}
+    .btn{
+      display:inline-flex;align-items:center;gap:10px;padding:12px 16px;border-radius:10px;font-weight:800;
+      background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#001;box-shadow:0 10px 40px rgba(0,234,255,0.06);
+      border: none;cursor:pointer;transition:transform .15s ease;
+      text-decoration:none;
+    }
+    .btn.secondary{background:transparent;color:var(--accent);border:1px solid rgba(255,255,255,0.05)}
+    .btn:active{transform:translateY(1px)}
 
-        footer { text-align: center; padding: 20px; background: #000; margin-top: 50px; color: #aaa; }
-    </style>
+    .hero-right{
+      background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.0));
+      border-radius:12px;padding:18px;border:1px solid rgba(255,255,255,0.03);
+      display:flex;flex-direction:column;gap:12px;align-items:stretch;
+      min-height:240px;
+    }
+
+    .cover-img{width:100%;height:180px;border-radius:10px;object-fit:cover;border:1px solid rgba(255,255,255,0.03)}
+    .small-stat{display:flex;gap:8px;align-items:center;justify-content:space-between;padding:10px 12px;background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);border-radius:10px;color:var(--muted);font-size:13px}
+
+    /* LAYOUT main content full width */
+    .main{
+      margin-top:24px;
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:28px;
+    }
+
+    /* ARTICLES FEED */
+    .article-feed{
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap:18px;
+    }
+    @media (max-width:980px){ .article-feed{grid-template-columns:1fr} }
+
+    .card{
+      border-radius:12px;padding:18px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
+      border:1px solid rgba(255,255,255,0.03);
+      backdrop-filter: blur(var(--glass-blur));
+      color: #dfe9f3;
+    }
+
+    .article-card{
+      display:flex;gap:16px;align-items:flex-start;
+    }
+    .article-thumb{
+      flex:0 0 200px;
+      height:120px;border-radius:10px;overflow:hidden;border:1px solid rgba(255,255,255,0.03);
+    }
+    .article-thumb img{width:100%;height:100%;object-fit:cover}
+    .article-meta{color:var(--muted);font-size:13px;margin-bottom:8px}
+    .article-title{font-size:18px;color:var(--accent);font-weight:700;cursor:pointer}
+    .article-excerpt{color:var(--muted);font-size:14px;margin-top:6px}
+
+    /* PROJECTS */
+    .projects-grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:18px;
+    }
+    @media (max-width:1100px){ .projects-grid{grid-template-columns: repeat(2,1fr)} }
+    @media (max-width:700px){ .projects-grid{grid-template-columns:1fr} }
+
+    .project-card{
+      padding:16px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
+      border:1px solid rgba(255,255,255,0.03);
+      transition:transform .18s, box-shadow .18s;
+    }
+    .project-card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(2,6,23,0.6)}
+    .project-title{font-weight:800;color:#e8fbff;margin-bottom:6px}
+    .project-desc{color:var(--muted);font-size:14px}
+
+    .project-links{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
+    .chip{padding:8px 12px;border-radius:999px;background:transparent;border:1px solid rgba(255,255,255,0.04);font-weight:700;color:var(--muted)}
+    .chip.primary{border-color:transparent;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#001}
+
+    /* RESEARCH */
+    .research-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    @media (max-width:1100px){ .research-grid{grid-template-columns:repeat(2,1fr)} }
+    @media (max-width:700px){ .research-grid{grid-template-columns:1fr} }
+
+    .research-card{padding:14px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));border:1px solid rgba(255,255,255,0.03);text-align:center}
+    .research-card img{width:100%;height:160px;object-fit:cover;border-radius:10px;margin-bottom:10px}
+
+    /* CONTACT */
+    .contact-grid{display:flex;gap:18px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+    .contact-item{padding:14px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);border:1px solid rgba(255,255,255,0.03);min-width:180px}
+
+    /* FOOTER */
+    footer.main-footer{
+      margin-top:36px;border-radius:12px;padding:28px;border:1px solid rgba(255,255,255,0.03);
+      background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
+      backdrop-filter: blur(10px);
+      max-width:var(--max-width);margin:36px auto 120px;padding:28px;
+    }
+    .footer-grid{display:flex;gap:20px;flex-wrap:wrap;align-items:flex-start;justify-content:space-between}
+    .copyright{color:var(--muted);font-size:13px;margin-top:12px}
+
+    /* micro animations */
+    .fade-up{opacity:0;transform:translateY(10px);transition:all .6s cubic-bezier(.2,.9,.2,1)}
+    .in-view{opacity:1;transform:translateY(0)}
+    .glow{box-shadow:0 12px 40px rgba(0,234,255,0.06), inset 0 -6px 30px rgba(124,92,255,0.02)}
+
+    @media (max-width:600px){
+      .title{font-size:26px}
+      .navlinks{display:none}
+      .container{padding:16px;margin:64px auto}
+      .topbar{left:12px;right:12px}
+    }
+  </style>
     </head>
     <body>
-        <header>
-            <h1>Akhilesh Pant</h1>
-            <nav>
+        <!-- TOPBAR -->
+        <div class="topbar" role="banner" aria-label="Topbar">
+            <div class="brand">
+                <div class="logo">AP</div>
+                <div>
+                    <div class="site-title">Akhilesh Pant (APX)</div>
+                    <div style="font-size:12px;color:var(--muted)">AI · ML ·
+                        Cybersecurity</div>
+                </div>
+            </div>
+
+            <nav class="navlinks" role="navigation" aria-label="top navigation">
                 <a href="#home">Home</a>
+                <a href="#articles">Articles</a>
                 <a href="#projects">Projects</a>
-                <a href="#certificates">Certificates</a>
                 <a href="#research">Research</a>
                 <a href="#contact">Contact</a>
+                <a href="https://github.com/Akhilesh2004NSBW" target="_blank"
+                    rel="noopener">GitHub</a>
             </nav>
-        </header>
-
-        <section id="home" class="hero">
-            <h2>AI & Machine Learning Engineer</h2>
-            <h3>Building Intelligent Systems for Real‑World Impact</h3>
-            <p>I specialize in developing AI‑powered solutions, predictive
-                analytics, quantum computing simulations, and
-                cybersecurity‑focused research. Passionate about research,
-                national security, innovation, and solving large‑scale problems
-                using technology.</p>
-            <a href="#projects" class="btn">View My Work</a>
-        </section>
-
-        <section id="projects">
-            <h2 class="section-title">Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <h4>Quantum State Simulation & Decoherence Analysis Engine
-                    </h4>
-                    <p>A Python‑based simulator of quantum gates & qubit state
-                        transformations.</p>
-                    <div class="links">
-                        <a href="#">Live Demo</a>
-                        <a
-                            href="https://github.com/Akhilesh2004NSBW/Qunatum-Computing">GitHub</a>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <h4>AI‑Based Fingerprint Authentication System</h4>
-                    <p>Biometric recognition and verification system integrated
-                        with a web interface.</p>
-                    <div class="links">
-                        <a
-                            href="https://ai-based-fingerprint-recognition-system.onrender.com">Live
-                            Demo</a>
-                        <a
-                            href="https://github.com/Akhilesh2004NSBW/render-demo">GitHub</a>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <h4>SEO Article Generation Engine</h4>
-                    <p>A FastAPI NLP model that generates complete SEO‑optimized
-                        articles from a keyword.</p>
-                    <div class="links">
-                        <a href="#">Live Demo</a>
-                        <a
-                            href="https://github.com/Akhilesh2004NSBW/SEO_Article_Agent">GitHub</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="certificates" class="certificates">
-            <h2 class="section-title">Certificates & Achievements</h2>
-
-            <div class="cert-grid">
-
-                <div class="cert-card">
-                    <a
-                        href="https://www.udemy.com/certificate/UC-838d0649-d1a7-4917-a2df-bfba54f71a08/"
-                        target="_blank">
-                        <img src="Udemy AI, ML.png"
-                            alt="A.I. & Machine Learning, Data Science Certificate">
-                    </a>
-                    <p>A.I. & Machine Learning, Data Science (Instructors Daniel
-                        Bourke
-
-                        Machine Learning Engineer & Andrei Neagoie
-
-                        Founder of zerotomastery.io)</p>
-                </div>
-
-                <div class="cert-card">
-                    <a
-                        href="https://www.udemy.com/certificate/UC-809a682a-051e-446d-9199-040528452e4f/"
-                        target="_blank">
-                        <img src="Python Django.png"
-                            alt="Python Django Certificate">
-                    </a>
-                    <p>Python Django (Instructor
-                        Maximilian Schwarzmüller
-
-                        AWS certified, Professional Web Developer and
-                        Instructor)</p>
-                </div>
-
-                <div class="cert-card">
-                    <a
-                        href="https://www.udemy.com/certificate/UC-0d597168-e76c-4f3e-ad22-3570d2ce794f/"
-                        target="_blank">
-                        <img src="Udemy Ethical Hacking.png"
-                            alt="Ethical Hacking Certificate">
-                    </a>
-                    <p>Become an ethical hacker that can hack like black hat
-                        hackers and secure systems like cybersecurity
-                        experts</p>
-                </div>
-
-                <div class="cert-card">
-                    <a
-                        href="https://www.udemy.com/certificate/UC-3b9e4a2c-6e41-4728-b4cb-27699e216b44/"
-                        target="_blank">
-                        <img src="Web Dev.png"
-                            alt="Web Development Certificate">
-                    </a>
-                    <p>Become a Full-Stack Web Developer with just ONE course.
-                        HTML, CSS, Javascript, Node, React, PostgreSQL, Web3 and
-                        DApps</p>
-                </div>
-
-               <!--<div class="cert-card">
-                    <a
-                        href="#"
-                        target="_blank">
-                        <img src="2nd National Space Day.jpg"
-                            alt="2nd National Space Day">
-                    </a>
-                    <p>Attended The 2nd National Space Day celebration session
-                        hosted by Bharat Space Education Research Centre( भारत
-                        अंतरिक्ष शिक्षा अनुसंधान केंद्र). </p>
-                </div>--> 
-
-            </div>
-        </section>
-
-        <section id="research" class="research">
-            <h2 class="section-title">Research, Report & Publications</h2>
-
-            <div class="research-grid">
-
-        <div class="research-card">
-            <a href="https://media.licdn.com/dms/document/media/v2/D561FAQHrpKh85ouIlQ/feedshare-document-pdf-analyzed/B56ZfuTQ_7GoAg-/0/1752049719268?e=1765411200&v=beta&t=uzB2DPckCX1EUfuC2Z20f_wUIqaStQbYyIOE1Th7BPM" download>
-                <img src="nsbw 1.png" alt="Strategic Report Thumbnail">
-            </a>
-            <p>National Security Blackwing (NSBW) Strategic Report - Geopolitics & National Security</p>
         </div>
 
-    </div>
-</section>
-        </section>
+        <main class="container" role="main" aria-live="polite">
+            <!-- HERO -->
+            <section id="home" class="hero fade-up" aria-label="Hero">
+                <div class="hero-grid">
+                    <div>
+                        <div class="kicker">Research • Systems • Security</div>
+                        <h1 class="title">Building practical AI & ML systems for
+                            real-world impact</h1>
+                        <p class="subtitle">
+                            I design and ship AI systems — from reproducible
+                            research and large-scale synthetic data pipelines to
+                            ML production and cybersecurity tooling. My work
+                            focuses on robust, production-minded engineering and
+                            research that bridges theory and field-ready
+                            systems.
+                        </p>
 
-       <section id="contact">
-    <h2 class="section-title">Contact</h2>
+                        <div class="hero-cta" role="group"
+                            aria-label="Primary CTAs">
+                            <a class="btn" href="#articles">Read Articles</a>
+                            <a class="btn secondary"
+                                href="https://github.com/Akhilesh2004NSBW"
+                                target="_blank" rel="noopener">View GitHub</a>
+                            <a class="btn secondary"
+                                href="mailto:apx.codes@gmail.com">Contact</a>
+                        </div>
 
-    <p>Email:
-        <a href="mailto:akhileshpant2004@gmail.com" target="_blank">
-            akhileshpant2004@gmail.com
-        </a>
-    </p>
+                        <div
+                            style="display:flex;gap:12px;align-items:center;margin-top:18px;color:var(--muted);font-size:13px">
+                            <div>Based in India · Open to collaborations</div>
+                            <div>•</div>
+                            <div>Available for research & consulting</div>
+                        </div>
+                    </div>
 
-    <p>Phone:
-        <a href="tel:+918477802902" target="_blank">
-            +91 8477802902
-        </a>
-    </p>
+                    <aside class="hero-right" aria-label="Hero panel">
+                        <img class="cover-img" src="assets/images/matrix.jpg"
+                            alt="Matrix — Ray Native orchestration"
+                            onerror="this.style.display='none'">
+                        <div class="small-stat">
+                            <div style="display:flex;flex-direction:column">
+                                <div
+                                    style="font-weight:800;color:#e8fbff">Featured</div>
+                                <div
+                                    style="color:var(--muted);font-size:13px">Matrix:
+                                    Decentralized data pipelines • Nov
+                                    2025</div>
+                            </div>
+                            <div
+                                style="text-align:right;color:var(--muted);font-size:13px">Research
+                                • Systems</div>
+                        </div>
+                    </aside>
+                </div>
+            </section>
 
-    <p>WhatsApp:
-        <a href="https://wa.me/918477802902" target="_blank">
-            Chat on WhatsApp
-        </a>
-    </p>
+            <!-- MAIN CONTENT -->
+            <div class="main">
+                <!-- ARTICLES -->
+                <section id="articles" class="fade-up"
+                    aria-labelledby="articles-title">
+                    <h2
+                        style="color:var(--accent);font-weight:800;margin-bottom:12px"
+                        id="articles-title">Articles & Technical Notes</h2>
 
-    <p>
-        <a href="https://www.linkedin.com/in/akhilesh2004" target="_blank">LinkedIn</a> |
-        <a href="https://github.com/Akhilesh2004NSBW" target="_blank">GitHub</a> |
-        <a href="https://www.instagram.com/nsbw.cscdi/" target="_blank">Instagram</a>
-    </p>
-</section>
-        <footer>
-            © 2025 Akhilesh Pant — AI • ML • Cybersecurity • Research
-        </footer>
+                    <div class="article-feed">
+                        <!-- Article 1 -->
+                        <div class="card article-card" role="article"
+                            tabindex="0">
+                            <a class="article-thumb" href="articles/matrix.html"
+                                aria-label="Open Matrix article">
+                                <img src="assets/images/matrix.jpg" alt>
+                            </a>
+                            <div>
+                                <div class="article-meta">Research • Nov 2025 •
+                                    7 min</div>
+                                <div class="article-title"
+                                    onclick="location.href='articles/matrix.html'">Meta
+                                    AI Researchers Introduce Matrix —
+                                    Decentralized Orchestration for Synthetic
+                                    Data</div>
+                                <div class="article-excerpt">Meta AI’s Matrix is
+                                    a decentralized, Ray-based framework that
+                                    scales multi-agent synthetic data generation
+                                    by removing central bottlenecks, achieving
+                                    massive speedups without sacrificing
+                                    quality.</div>
+                            </div>
+                        </div>
 
+                        <!-- Article 2 -->
+                        <div class="card article-card" role="article"
+                            tabindex="0">
+                            <a class="article-thumb"
+                                href="articles/Learn.html"
+                                aria-label="Open AI future article">
+                                <img src="assets/images/learn.jpg" alt>
+                            </a>
+                            <div>
+                                <div class="article-meta">AI • Oct 2025 • 8
+                                    min</div>
+                                <div class="article-title"
+                                    onclick="location.href='articles/Learn.html'">Online
+                                    Process Reward Learning (OPRL) — How We
+                                    Learn Step-Level Rewards from
+                                    Preferences</div>
+                                <div class="article-excerpt">Converting sparse
+                                    terminal rewards into dense, step-by-step
+                                    feedback using trajectory preferences and
+                                    online process reward models.</div>
+                            </div>
+                        </div>
+
+                        <!-- Article 3 -->
+                        <div class="card article-card" role="article"
+                            tabindex="0">
+                            <a class="article-thumb"
+                                href="articles/ml_engineering_roadmap.html"
+                                aria-label="Open ML engineering article">
+                                <img src="assets/images/ml eng.jpg" alt>
+                            </a>
+                            <div>
+                                <div class="article-meta">ML Engineering • Sep
+                                    2025 • 10 min</div>
+                                <div class="article-title"
+                                    onclick="location.href='articles/ml_engineering_roadmap.html'">ML
+                                    Engineering Roadmap — Data, Models &
+                                    Production</div>
+                                <div class="article-excerpt">From datasets to
+                                    MLOps pipelines — everything you must master
+                                    to become a production ML engineer.</div>
+                            </div>
+                        </div>
+
+                        <!-- Article 4 -->
+                        <div class="card article-card" role="article"
+                            tabindex="0">
+                            <a class="article-thumb"
+                                href="articles/cybersecurity_threats.html"
+                                aria-label="Open cybersecurity article">
+                                <img src="assets/images/cyber.jpg" alt>
+                            </a>
+                            <div>
+                                <div class="article-meta">Cybersecurity • Sep
+                                    2025 • 7 min</div>
+                                <div class="article-title"
+                                    onclick="location.href='articles/cybersecurity_threats.html'">Modern
+                                    Cybersecurity Threats & National
+                                    Security</div>
+                                <div class="article-excerpt">Breakdown of
+                                    cyberwarfare, threat models, and defensive
+                                    frameworks for national-level security
+                                    teams.</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- PROJECTS -->
+                <section id="projects" class="fade-up"
+                    aria-labelledby="projects-title">
+                    <h2
+                        style="color:var(--accent);font-weight:800;margin-bottom:12px"
+                        id="projects-title">Selected Projects</h2>
+
+                    <div class="projects-grid">
+                        <div class="project-card card">
+                            <div class="project-title">Quantum State Simulation
+                                & Decoherence Engine</div>
+                            <div class="project-desc">A pure Python simulator
+                                for quantum logic gates and qubit evolution;
+                                focused on educational clarity and mathematical
+                                fidelity.</div>
+                            <div class="project-links">
+                                <a class="chip primary"
+                                    href="https://github.com/Akhilesh2004NSBW/Qunatum-Computing"
+                                    target="_blank" rel="noopener">GitHub</a>
+                                <a class="chip"
+                                    href="https://quantum-state-evolution-and-decoherence-3.onrender.com">Live
+                                    Demo</a>
+                            </div>
+                        </div>
+
+                        <div class="project-card card">
+                            <div class="project-title">AI-Based Fingerprint
+                                Authentication</div>
+                            <div class="project-desc">Biometric verification
+                                system with ML backend and web app — deployed
+                                demo and API for recognition &
+                                authentication.</div>
+                            <div class="project-links">
+                                <a class="chip primary"
+                                    href="https://github.com/Akhilesh2004NSBW/fingerprint-auth"
+                                    target="_blank" rel="noopener">GitHub</a>
+                                <a class="chip"
+                                    href="https://ai-based-fingerprint-recognition-system.onrender.com"
+                                    target="_blank">Live Demo</a>
+                            </div>
+                        </div>
+
+                        <div class="project-card card">
+                            <div class="project-title">SEO Article Generation
+                                Engine</div>
+                            <div class="project-desc">FastAPI +
+                                transformer-based NLP pipeline that generates
+                                SEO-optimized drafts and content outlines.</div>
+                            <div class="project-links">
+                                <a class="chip primary"
+                                    href="https://github.com/Akhilesh2004NSBW/SEO_Article_Agent"
+                                    target="_blank" rel="noopener">GitHub</a>
+                                <a class="chip" href="#">Live Demo</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+                <!-- RESEARCH -->
+                <section id="research" class="fade-up"
+                    aria-labelledby="research-title">
+                    <h2
+                        style="color:var(--accent);font-weight:800;margin-bottom:12px"
+                        id="research-title">Research & Publications</h2>
+
+                    <div class="research-grid">
+                        <div class="research-card card">
+                            <a
+                                href="assets/docs/Blackwing's Stand on China-Pak-Bangladesh Axis-1.pdf"
+                                target="_blank">
+                                <img src="assets/images/nsbw 1.png"
+                                    alt="NSBW report">
+                            </a>
+                            <div style="color:var(--muted);margin-top:6px">NSBW
+                                Strategic Report — Geopolitics & National
+                                Security</div>
+                        </div>
+
+                        <div class="research-card card">
+                            <a
+                                href="assets/docs/Socio-Political Factors Driving Terrorism in South Asia.pdf"
+                                target="_blank">
+                                <img src="assets/images/socio.jpg"
+                                    alt="Paper thumbnail">
+                            </a>
+                            <div
+                                style="color:var(--muted);margin-top:6px">Socio-Political
+                                Factors Driving Terrorism in South Asia</div>
+                        </div>
+
+                        <div class="research-card card">
+                            <a
+                                href="assets/docs/Geopolitical Context and Historical Roots of Terrorism.pdf"
+                                target="_blank">
+                                <img src="assets/images/tsa.jpg"
+                                    alt="Paper thumbnail">
+                            </a>
+                            <div
+                                style="color:var(--muted);margin-top:6px">Geopolitical
+                                Context and Historical Roots of Terrorism</div>
+                        </div>
+
+                        <div class="research-card card">
+                            <a
+                                href="assets/docs/Decoding BRICS_ Rise of the Global South.pdf"
+                                target="_blank">
+                                <img src="assets/images/brics.jpg"
+                                    alt="Paper thumbnail">
+                            </a>
+                            <div
+                                style="color:var(--muted);margin-top:6px">Decoding
+                                BRICS_ Rise of the Global South</div>
+                        </div>
+
+                        <div class="research-card card">
+                            <a
+                                href="assets/docs/Role of Foreign Powers in Spreading Terror in South Asia.pdf"
+                                target="_blank">
+                                <img src="assets/images/for.jpg"
+                                    alt="Paper thumbnail">
+                            </a>
+                            <div
+                                style="color:var(--muted);margin-top:6px">Role
+                                of Foreign Powers in Spreading
+                                Terrorism in South Asia</div>
+                        </div>
+
+                        <!--        <div class="research-card card">
+                            <a href="https://github.com/Akhilesh2004NSBW"
+                                target="_blank">
+                                <img src="assets/images/research-thumb.jpg"
+                                    alt="Research projects">
+                            </a>
+                            <div
+                                style="color:var(--muted);margin-top:6px">Open-source
+                                experiments & code</div>
+                        </div> -->
+
+                        <div class="research-card card">
+                            <a
+                                href="assets/docs/The Shangri-La Dialogue_ Overview & Recent Developments.pdf"
+                                target="_blank">
+                                <img src="assets/images/sld.jpg"
+                                    alt="Paper thumbnail">
+                            </a>
+                            <div
+                                style="color:var(--muted);margin-top:6px">Shangri-La
+                                Dialogue</div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- CONTACT -->
+                <section id="contact" class="fade-up"
+                    aria-labelledby="contact-title">
+                    <h2
+                        style="color:var(--accent);font-weight:800;margin-bottom:12px"
+                        id="contact-title">Get in touch</h2>
+
+                    <div class="card contact-grid">
+                        <div class="contact-item">
+                            <div
+                                style="font-weight:800;color:#e8fbff">Email</div>
+                            <div style="color:var(--muted);margin-top:6px"><a
+                                    href="mailto:apx.codes@gmail.com">apx.codes@gmail.com</a></div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div style="font-weight:800;color:#e8fbff">Phone /
+                                WhatsApp</div>
+                            <div style="color:var(--muted);margin-top:6px"><a
+                                    href="tel:+918477802902">+91 8477802902</a>
+                                · <a href="https://wa.me/918477802902"
+                                    target="_blank">Chat</a></div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div
+                                style="font-weight:800;color:#e8fbff">Social</div>
+                            <div style="color:var(--muted);margin-top:6px">
+                                <a
+                                    href="https://www.linkedin.com/in/akhilesh2004"
+                                    target="_blank">LinkedIn</a> ·
+                                <a href="https://github.com/Akhilesh2004NSBW"
+                                    target="_blank">GitHub</a> ·
+                                <a
+                                    href="https://www.instagram.com/national_security_blackwing/"
+                                    target="_blank">Instagram</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </section>
+            </div>
+
+            <!-- FOOTER -->
+            <footer class="main-footer" id="footer" role="contentinfo"
+                aria-label="Footer">
+                <div class="footer-grid">
+                    <div style="max-width:720px">
+                        <h3 style="color:var(--accent);margin:0 0 8px">Explore
+                            my work</h3>
+                        <p style="color:var(--muted);margin-top:6px">
+                            Demos, reproducible notebooks, and research
+                            reports—open-source by default. Browse projects,
+                            read technical write-ups, or get in touch for
+                            collaborations and research.
+                        </p>
+
+                        <div
+                            style="margin-top:14px;display:flex;gap:8px;flex-wrap:wrap">
+                            <a class="chip"
+                                href="assets/docs/Socio-Political Factors Driving Terrorism in South Asia.pdf"
+                                target="_blank">Report</a>
+                            <a class="chip"
+                                href="https://github.com/Akhilesh2004NSBW/matrix"
+                                target="_blank">Matrix Repo</a>
+                            <a class="chip"
+                                href="https://github.com/Akhilesh2004NSBW"
+                                target="_blank">All Repos</a>
+                            <a class="chip" href="#"
+                                target="_blank">Live Demos</a>
+                        </div>
+
+                        <div class="copyright" style="margin-top:16px">
+                            © 2025 Akhilesh Pant — AI • ML • Cybersecurity •
+                            Research
+                        </div>
+                    </div>
+
+                    <div
+                        style="display:flex;flex-direction:column;gap:12px;align-items:stretch;min-width:240px">
+                        <div
+                            style="display:flex;justify-content:space-between;align-items:center">
+                            <div
+                                style="font-weight:800;color:#e8fbff">Subscribe</div>
+                            <div style="color:var(--muted);font-size:13px">Stay
+                                updated</div>
+                        </div>
+
+                        <div style="display:flex;gap:8px">
+                            <input id="newsletter-email" type="email"
+                                placeholder="example@gmail.com"
+                                aria-label="newsletter email"
+                                style="flex:1;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--muted)">
+                            <button id="subscribe-btn" class="chip primary"
+                                style="cursor:pointer">Subscribe</button>
+                        </div>
+
+                        <div
+                            style="margin-top:8px;color:var(--muted);font-size:13px">Follow</div>
+                        <div style="display:flex;gap:10px;margin-top:6px">
+                            <!-- icons simplified -->
+                            <a href="https://github.com/Akhilesh2004NSBW"
+                                target="_blank" aria-label="GitHub">GitHub</a>
+                            <a href="https://www.linkedin.com/in/akhilesh2004"
+                                target="_blank"
+                                aria-label="LinkedIn">LinkedIn</a>
+                            <a
+                                href="https://www.instagram.com/national_security_blackwing"
+                                target="_blank"
+                                aria-label="Instagram">Instagram</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </main>
+
+        <script>
+    // Reveal on scroll
+    (function(){
+      const observer = new IntersectionObserver((entries)=>{
+        entries.forEach(e=>{
+          if(e.isIntersecting) e.target.classList.add('in-view');
+        });
+      }, {threshold:0.08});
+      document.querySelectorAll('.fade-up').forEach(el=>observer.observe(el));
+    })();
+
+    // Smooth anchor scroll
+    (function(){
+      document.querySelectorAll('a[href^="#"]').forEach(a=>{
+        a.addEventListener('click', (ev)=>{
+          const href = a.getAttribute('href');
+          if(href.startsWith('#')){
+            ev.preventDefault();
+            const el = document.querySelector(href);
+            if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+            history.replaceState && history.replaceState(null, '', href);
+          }
+        });
+      });
+    })();
+
+    // Subscribe button (local demo)
+    (function(){
+      const btn = document.getElementById('subscribe-btn');
+      btn && btn.addEventListener('click', ()=>{
+        const e = document.getElementById('newsletter-email');
+        const val = e && e.value && e.value.trim();
+        if(!val || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)){
+          e && (e.style.borderColor = '#ff6b6b');
+          btn.innerText = 'Enter valid email';
+          setTimeout(()=>{ btn.innerText = 'Subscribe'; e && (e.style.borderColor='rgba(255,255,255,0.04)') },1800);
+          return;
+        }
+        btn.innerText = 'Subscribed ✓';
+        btn.style.opacity = '0.95';
+        setTimeout(()=>{ btn.innerText = 'Subscribe'; e.value=''; },2200);
+      });
+    })();
+  </script>
     </body>
 </html>

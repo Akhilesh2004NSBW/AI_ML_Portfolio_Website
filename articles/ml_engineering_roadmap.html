@@ -1,0 +1,658 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <title>ML Engineering Roadmap — Data, Models & Production — Akhilesh
+            Pant</title>
+
+        <!-- Google Font -->
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap"
+            rel="stylesheet">
+
+        <meta name="description"
+            content="ML Engineering Roadmap — Data, Models & Production. A concise guide covering data foundations, modeling, training at scale, deployment, and MLOps.">
+
+        <style>
+    :root{
+      --bg-900:#060607;
+      --card:#07080a;
+      --glass: rgba(255,255,255,0.03);
+      --muted: #bdbdbd;
+      --accent: #00eaff;
+      --accent-2: #7c5cff;
+      --glass-blur: 12px;
+      --max-width:1100px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:
+        radial-gradient(1200px 600px at 10% 10%, rgba(0,234,255,0.04), transparent 8%),
+        radial-gradient(1000px 500px at 90% 85%, rgba(124,92,255,0.03), transparent 8%),
+        var(--bg-900);
+      color:#e8eef6;
+      font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.7;
+      -webkit-tap-highlight-color:transparent;
+      padding-bottom:80px;
+    }
+
+    a{color:var(--accent); text-decoration:none}
+    .container{max-width:var(--max-width);margin:48px auto;padding:28px;position:relative}
+
+    /* HEADER */
+    .topbar{
+      position:fixed;left:0;right:0;top:12px;margin:0 auto;max-width:var(--max-width);height:56px;
+      display:flex;align-items:center;justify-content:space-between;padding:8px 18px;
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:12px;border:1px solid rgba(255,255,255,0.04);
+      backdrop-filter: blur(6px);
+      box-shadow:0 6px 30px rgba(2,6,23,0.6);
+      z-index:40;
+    }
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{
+      width:44px;height:44px;border-radius:9px;
+      background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      display:flex;align-items:center;justify-content:center;font-weight:800;color:#032;box-shadow:0 6px 30px rgba(0,0,0,0.6);
+      font-family:monospace;
+    }
+    .site-title{font-weight:700;color:#eaffff}
+    .navlinks{display:flex;gap:14px;align-items:center}
+    .navlinks a{font-size:14px;color:var(--muted);padding:8px 12px;border-radius:8px;transition:all .18s}
+    .navlinks a:hover{color:#000;background:linear-gradient(90deg,var(--accent),var(--accent-2))}
+
+    /* HERO */
+    .hero{
+      margin-top:84px;
+      border-radius:14px;
+      overflow:hidden;
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border:1px solid rgba(255,255,255,0.03);
+      backdrop-filter: blur(var(--glass-blur));
+      display:grid;
+      grid-template-columns: 1fr 360px;
+      gap:20px;padding:22px;
+      align-items:center;
+    }
+    @media (max-width:960px){ .hero{grid-template-columns:1fr; padding:18px} .hero-right{order:2} }
+
+    .hero-left{padding:6px 8px}
+    .kicker{font-size:13px;color:var(--muted);display:flex;gap:8px;align-items:center}
+    .title{font-size:28px;color:var(--accent);margin:12px 0 8px;font-weight:800;letter-spacing:-0.4px}
+    .subtitle{color:var(--muted);margin-bottom:12px}
+    .hero-cta{display:flex;gap:12px;margin-top:12px;flex-wrap:wrap}
+    .btn{
+      display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:10px;font-weight:700;
+      background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#002;box-shadow:0 8px 30px rgba(0,234,255,0.08);
+      border: none;cursor:pointer;transition:transform .15s ease;
+    }
+    .btn.secondary{background:transparent;color:var(--accent);border:1px solid rgba(255,255,255,0.05)}
+    .btn:active{transform:translateY(1px)}
+
+    .hero-right{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.0));
+      border-radius:12px;padding:14px;border:1px solid rgba(255,255,255,0.03);
+      display:flex;flex-direction:column;gap:12px;align-items:stretch;
+      min-height:220px;
+    }
+
+    .meta-pill{display:flex;gap:10px;align-items:center;color:var(--muted);font-size:13px}
+    .cover-img{width:100%;height:180px;border-radius:10px;object-fit:cover;border:1px solid rgba(255,255,255,0.03)}
+    .small-stat{display:flex;gap:8px;align-items:center;justify-content:space-between;padding:8px 12px;background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);border-radius:10px;color:var(--muted);font-size:13px}
+
+    /* LAYOUT */
+    .layout{display:grid;grid-template-columns: 1fr 320px;gap:28px;margin-top:24px}
+    @media (max-width:1100px){ .layout{grid-template-columns:1fr} }
+
+    article{
+      background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
+      border-radius:12px;padding:22px;border:1px solid rgba(255,255,255,0.03);
+      backdrop-filter: blur(var(--glass-blur));
+      color: #dfe9f3;
+    }
+
+    article h2{color:var(--accent);font-size:20px;margin-top:18px}
+    article h3{color:var(--accent-2);font-size:16px;margin-top:16px}
+    article h4{color:#dbe9ff;font-size:15px;margin-top:10px}
+    article p{font-size:15px;color:#e6eef8}
+    article ol{padding-left:18px;margin-top:6px}
+    article pre{background:#071018;padding:12px;border-radius:8px;overflow:auto;color:#d8f8ff}
+
+    /* highlight box */
+    .highlight{
+      border-radius:10px;padding:14px;margin:16px 0;border-left:4px solid var(--accent);
+      background:linear-gradient(180deg, rgba(0,234,255,0.02), rgba(124,92,255,0.01));
+      color:#bbf7ff;
+    }
+
+    /* SIDEBAR */
+    .sidebar{
+      position:relative;top:0;display:flex;flex-direction:column;gap:12px;
+    }
+    .card{
+      border-radius:12px;padding:14px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
+      border:1px solid rgba(255,255,255,0.03);
+    }
+    .toc a{display:block;color:var(--muted);padding:8px;border-radius:8px;font-size:14px}
+    .toc a:hover{color:var(--accent)}
+    .stats{display:flex;gap:8px;flex-wrap:wrap}
+    .stat{flex:1;min-width:120px;padding:10px;border-radius:10px;background:rgba(255,255,255,0.01);text-align:center}
+
+    /* FOOTER */
+    footer.main-footer{
+      margin-top:36px;border-radius:12px;padding:28px;border:1px solid rgba(255,255,255,0.03);
+      background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
+      backdrop-filter: blur(10px);
+    }
+    footer .footer-grid{display:grid;grid-template-columns:1fr 360px;gap:20px;align-items:start}
+    @media (max-width:900px){ footer .footer-grid{grid-template-columns:1fr} }
+
+    .footer-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+    .chip{padding:8px 12px;border-radius:999px;background:transparent;border:1px solid rgba(255,255,255,0.04);font-weight:700;color:var(--muted)}
+    .chip.primary{border-color:transparent;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#001;text-shadow:none}
+    .socials{display:flex;gap:10px;margin-top:12px}
+
+    .copyright{color:var(--muted);font-size:13px;margin-top:12px}
+
+    /* micro animations */
+    .fade-up{opacity:0;transform:translateY(8px);transition:all .6s cubic-bezier(.2,.9,.2,1)}
+    .in-view{opacity:1;transform:translateY(0)}
+    .glow{box-shadow:0 10px 30px rgba(0,234,255,0.06), inset 0 -6px 30px rgba(124,92,255,0.02)}
+
+    /* small screens */
+    @media (max-width:600px){
+      .title{font-size:20px}
+      .navlinks{display:none}
+      .container{padding:16px;margin:64px auto}
+      .topbar{left:12px;right:12px}
+    }
+
+    /* code figure placeholder */
+    .figure{
+      width:100%;border-radius:10px;padding:14px;background:#071018;border:1px solid rgba(255,255,255,0.02);color:#cfefff;margin-top:12px;overflow:auto;
+    }
+
+  </style>
+    </head>
+    <body>
+
+        <!-- top nav -->
+        <div class="topbar" role="banner" aria-label="Site topbar">
+            <div class="brand">
+                <div class="logo">AP</div>
+                <div>
+                    <div class="site-title">Akhilesh Pant</div>
+                    <div style="font-size:12px;color:var(--muted)">AI · ML ·
+                        Research</div>
+                </div>
+            </div>
+
+            <nav class="navlinks" role="navigation" aria-label="top navigation">
+                <a href="#article">Article</a>
+                <a href="#footer">Explore</a>
+                <a href="https://github.com/Akhilesh2004NSBW"
+                    target="_blank">GitHub</a>
+                <a href="mailto:apx.codes@gmail.com" target="_blank">Contact</a>
+            </nav>
+        </div>
+
+        <main class="container" role="main">
+            <div class="hero fade-up" id="hero">
+                <div class="hero-left">
+                    <div class="kicker">Engineering • Scale • Production</div>
+                    <h1 class="title">ML Engineering Roadmap — <span
+                            style="font-weight:700">ML Engineering
+                            Roadmap</span></h1>
+                    <div class="subtitle">Data, Models & Production — a concise
+                        guide from data foundations to MLOps and
+                        monitoring.</div>
+                    <div style="display:flex;gap:12px;align-items:center"
+                        class="hero-cta">
+                        <a class="btn" href="#article" id="read-btn">▶ Read
+                            Article</a>
+                        <a class="btn secondary"
+                            href="https://github.com/Akhilesh2004NSBW"
+                            target="_blank" rel="noopener">All Projects</a>
+                    </div>
+
+                    <div
+                        style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap">
+                        <div
+                            style="color:var(--muted);font-size:13px">Published:
+                            Dec 2025</div>
+                        <div style="color:var(--muted);font-size:13px"
+                            id="reading-time">—</div>
+                        <div style="color:var(--muted);font-size:13px">Category:
+                            ML Engineering • MLOps</div>
+                    </div>
+
+                </div>
+
+                <aside class="hero-right">
+                    <img class="cover-img" src="../assets/images/ml eng.jpg"
+                        alt="ML Engineering Roadmap"
+                        onerror="this.style.display='none'">
+                    <div class="small-stat">
+                        <div style="display:flex;flex-direction:column">
+                            <div style="font-weight:800;color:#e8fbff">Focus
+                                areas</div>
+                            <div style="color:var(--muted);font-size:13px">Data
+                                → Models → Scale → Deploy → Monitor</div>
+                        </div>
+                        <div
+                            style="text-align:right;color:var(--muted);font-size:13px">Role:
+                            Production-ready ML systems</div>
+                    </div>
+                </aside>
+            </div>
+
+            <!-- main layout -->
+            <div class="layout">
+                <article id="article" class="fade-up" tabindex="0"
+                    role="article" aria-labelledby="article-title">
+                    <p>
+                        <strong>ML Engineering Roadmap — Data, Models &
+                            Production</strong>
+                        is a compact guide for building production-grade machine
+                        learning systems. Below, each stage is described in
+                        plain,
+                        actionable terms so you know what to learn and why it
+                        matters.
+                    </p>
+
+                    <h2 id="article-title">Data Foundations</h2>
+
+                    <p>
+                        ML engineering begins with data mastery. You must know
+                        how to collect data from APIs, databases, logs, sensors,
+                        and web sources,
+                        then clean, validate, and version it reliably. Skills
+                        here include exploratory data analysis (EDA), feature
+                        engineering,
+                        handling missing values, outliers, bias, and data
+                        leakage. Familiarity with SQL, Pandas, NumPy, data
+                        labeling strategies,
+                        schema validation, and dataset versioning tools like DVC
+                        or LakeFS is essential. Strong ML engineers treat data
+                        pipelines as
+                        first-class production systems, not one-off scripts.
+                    </p>
+
+                    <h2>Modeling & Algorithms</h2>
+
+                    <p>
+                        Once data is solid, focus on models. You should deeply
+                        understand classical ML (linear models, trees,
+                        ensembles), core statistics,
+                        and optimization, followed by deep learning (CNNs, RNNs,
+                        transformers). Model selection, hyperparameter tuning,
+                        cross-validation,
+                        and interpretability using SHAP or LIME are critical.
+                        Framework expertise in Scikit-learn, PyTorch, or
+                        TensorFlow is expected.
+                        Beyond training accuracy, you must reason about
+                        generalization, robustness, fairness, uncertainty, and
+                        drift—because real-world
+                        data always changes.
+                    </p>
+
+                    <h2>Training at Scale</h2>
+
+                    <p>
+                        Production ML rarely trains on a laptop. Learn
+                        distributed training, GPU/TPU utilization,
+                        mixed-precision training, experiment tracking
+                        (MLflow, Weights & Biases), and reproducibility. You
+                        should understand batching, memory management,
+                        parallelism, and model checkpoints.
+                        This stage bridges research-grade models with
+                        engineering reality.
+                    </p>
+
+                    <h2>Deployment & Serving</h2>
+
+                    <p>
+                        Models must be deployable as services. You need skills
+                        in REST/gRPC APIs, model serialization, Docker,
+                        Kubernetes, and inference optimization
+                        using ONNX, TensorRT, or quantization. Understanding
+                        latency, throughput, scaling, and cost tradeoffs is
+                        crucial. Deployment strategies
+                        include batch inference, real-time inference, and edge
+                        deployment.
+                    </p>
+
+                    <h2>MLOps & Monitoring</h2>
+
+                    <p>
+                        True ML engineers own models after deployment. Master
+                        CI/CD for ML, automated retraining pipelines, feature
+                        stores, monitoring for data drift,
+                        model degradation, and system failures. Tools like
+                        Airflow, Kubeflow, and cloud ML platforms help
+                        orchestrate this lifecycle. The goal is
+                        reliable, explainable, continuously improving ML systems
+                        in production.
+                    </p>
+
+                    <div class="highlight">
+                        <strong>Summary:</strong> Learn data pipelines first,
+                        then modeling and scale; make deployment and monitoring
+                        integral. The engineering
+                        work of ML is keeping models reliable and useful in the
+                        messy real world.
+                    </div>
+
+                    <h3>Suggested learning path (practical)</h3>
+                    <ol>
+                        <li><strong>Data:</strong> Build a reproducible data
+                            pipeline — ingestion, cleaning, validation,
+                            versioning.</li>
+                        <li><strong>Models:</strong> Implement classical models,
+                            then simple neural networks, then transformers;
+                            practice interpretability.</li>
+                        <li><strong>Scale:</strong> Run a distributed training
+                            job on cloud GPUs; learn checkpointing and mixed
+                            precision.</li>
+                        <li><strong>Deploy:</strong> Containerize a model and
+                            expose a REST or gRPC endpoint; measure latency and
+                            throughput.</li>
+                        <li><strong>MLOps:</strong> Add monitoring, alerts, and
+                            an automated retraining loop tied to data drift
+                            signals.</li>
+                    </ol>
+
+                    <h3>Tools & technologies (non-exhaustive)</h3>
+                    <ul>
+                        <li><strong>Data:</strong> SQL, Pandas, NumPy, DVC,
+                            LakeFS, Great Expectations</li>
+                        <li><strong>Modeling:</strong> Scikit-learn, PyTorch,
+                            TensorFlow, HuggingFace</li>
+                        <li><strong>Training & tracking:</strong> MLflow,
+                            Weights & Biases, Horovod, DeepSpeed</li>
+                        <li><strong>Serving:</strong> Docker, Kubernetes,
+                            FastAPI, TorchServe, ONNX Runtime, TensorRT</li>
+                        <li><strong>MLOps:</strong> Airflow, Kubeflow, Feast,
+                            Dagster, Prometheus & Grafana for monitoring</li>
+                    </ul>
+
+                    <h3>Practical tips</h3>
+                    <ol>
+                        <li><strong>Version everything:</strong> code, datasets,
+                            model checkpoints — it pays off when debugging
+                            production issues.</li>
+                        <li><strong>Test with production-shaped data:</strong>
+                            synthetic or toy datasets are fine for experiments,
+                            but validate pipelines on real production
+                            extracts.</li>
+                        <li><strong>Monitor continuously:</strong> set baselines
+                            and alerts for drift, latency regressions, and
+                            prediction-quality changes.</li>
+                        <li><strong>Automate releases:</strong> CI/CD reduces
+                            human error — treat model rollout like software
+                            deployment with canaries and rollbacks.</li>
+                        <li><strong>Cost-awareness:</strong> profile inference
+                            and training costs — sometimes a small model with
+                            optimizations is better than an expensive
+                            state-of-the-art model.</li>
+                    </ol>
+
+                    <p style="margin-top:18px;color:var(--muted)">
+                        If you'd like, I can convert this roadmap into a full
+                        <em>learn.html</em> page (ready for your portfolio),
+                        create a downloadable
+                        PDF, or generate starter repo files (Dockerfile, FastAPI
+                        inference server, Kubernetes manifest) that follow this
+                        roadmap. Tell me
+                        which output you'd like next.
+                    </p>
+
+                </article>
+
+                <!-- sidebar -->
+                <aside class="sidebar fade-up" aria-labelledby="sidebar-title">
+                    <div class="card">
+                        <div
+                            style="display:flex;justify-content:space-between;align-items:center">
+                            <div>
+                                <div
+                                    style="font-size:13px;color:var(--muted)">Quick
+                                    links</div>
+                                <div
+                                    style="font-weight:800;color:#e8fbff">Explore</div>
+                            </div>
+                            <div style="font-size:12px;color:var(--muted)">ML •
+                                Production</div>
+                        </div>
+
+                        <div class="toc" style="margin-top:12px">
+                            <a href="#article">Article</a>
+                            <a href="#article-title">Data Foundations</a>
+                            <a href="#article-title">Modeling & Algorithms</a>
+                            <a href="#article-title">Training at Scale</a>
+                            <a href="#footer">Resources</a>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div
+                            style="font-weight:800;color:#e8fbff;margin-bottom:8px">Repository</div>
+                        <div style="color:var(--muted);font-size:14px">Starter
+                            templates, deployment examples, and pipeline
+                            notes</div>
+                        <div style="margin-top:12px;display:flex;gap:8px">
+                            <a class="chip primary"
+                                href="https://github.com/Akhilesh2004NSBW/Machine-Learning-Projects
+                                target="_blank">Starter Repo</a>
+                            <a class="chip"
+                                href="https://github.com/Akhilesh2004NSBW"
+                                target="_blank">All Projects</a>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div
+                            style="font-weight:800;color:#e8fbff;margin-bottom:8px">Roadmap
+                            Highlights</div>
+                        <div class="stats">
+                            <div class="stat"><div
+                                    style="font-weight:800;color:#fff">Data</div><div
+                                    style="color:var(--muted);font-size:13px">Foundations</div></div>
+                            <div class="stat"><div
+                                    style="font-weight:800;color:#fff">Models</div><div
+                                    style="color:var(--muted);font-size:13px">Algorithms</div></div>
+                            <div class="stat"><div
+                                    style="font-weight:800;color:#fff">MLOps</div><div
+                                    style="color:var(--muted);font-size:13px">Production</div></div>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+
+            <!-- FOOTER -->
+            <footer id="footer" class="main-footer fade-up" role="contentinfo"
+                aria-label="Footer">
+                <div class="footer-grid">
+                    <div>
+                        <h3 style="color:var(--accent);margin:0 0 8px">Explore
+                            My Work</h3>
+
+                        <p style="color:var(--muted);margin-top:6px">
+                            Browse reproducible ML experiments, deployment
+                            recipes, and engineering write-ups. From model
+                            design to deployed systems,
+                            full code and guides are available on GitHub.
+                        </p>
+
+                        <p style="color:var(--muted);margin-top:8px">
+                            Subscribe for release notes, tutorials, and
+                            production-ready examples.
+                        </p>
+
+                        <div class="footer-links" style="margin-top:14px">
+                            <a class="chip" href="#" target="_blank">Roadmap
+                                Notes</a>
+                            <a class="chip"
+                                href="https://github.com/Akhilesh2004NSBW"
+                                target="_blank">Project Repo</a>
+                            <a class="chip"
+                                href="https://github.com/Akhilesh2004NSBW"
+                                target="_blank">All Repos</a>
+                            <a class="chip" href="#"
+                                target="_blank">Templates</a>
+                            <a class="chip"
+                                href="https://www.linkedin.com/in/akhilesh2004"
+                                target="_blank">LinkedIn</a>
+                        </div>
+
+                        <div
+                            style="margin-top:12px;display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+                            <a class="chip"
+                                href="mailto:apx.codes@gmail.com">Email</a>
+                            <a class="chip" href="tel:+918477802902">+91
+                                8477802902</a>
+                            <a class="chip" href="https://wa.me/918477802902"
+                                target="_blank">WhatsApp</a>
+                        </div>
+
+                        <div class="copyright" style="margin-top:16px">
+                            © 2025 Akhilesh Pant — AI Engineer • Machine
+                            Learning Specialist • Research & Innovation
+                        </div>
+                    </div>
+
+                    <div
+                        style="display:flex;flex-direction:column;gap:12px;align-items:stretch">
+                        <div
+                            style="display:flex;justify-content:space-between;align-items:center">
+                            <div
+                                style="font-weight:800;color:#e8fbff">Subscribe</div>
+                            <div style="color:var(--muted);font-size:13px">Stay
+                                updated</div>
+                        </div>
+
+                        <div style="display:flex;gap:8px">
+                            <input id="newsletter-email" type="email"
+                                placeholder="example@gmail.com"
+                                aria-label="newsletter email"
+                                style="flex:1;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--muted)">
+                            <button id="subscribe-btn" class="chip primary"
+                                style="cursor:pointer">Subscribe</button>
+                        </div>
+
+                        <div
+                            style="margin-top:8px;color:var(--muted);font-size:13px">Follow</div>
+                        <div style="display:flex;gap:10px;margin-top:6px">
+                            <!-- GitHub -->
+                            <a href="https://github.com/Akhilesh2004NSBW"
+                                target="_blank" aria-label="GitHub">
+                                <svg width="36" height="36" viewBox="0 0 24 24"
+                                    fill="none"
+                                    style="filter:drop-shadow(0 6px 18px rgba(0,0,0,0.4))">
+                                    <rect width="24" height="24" rx="7"
+                                        fill="rgba(255,255,255,0.02)"></rect>
+                                    <path fill="currentColor"
+                                        d="M12 .5a12 12 0 0 0-3.8 23.4c.6.1.8-.2.8-.6v-2.1c-3.4.7-4-1.6-4-1.6-.5-1.3-1.1-1.6-1.1-1.6-.9-.6.1-.6.1-.6 1 .1 1.6 1 1.6 1 .9 1.6 2.4 1.2 3 .9.1-.7.4-1.2.7-1.5-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.4-2.4 1.1-3.3-.1-.3-.5-1.6.1-3.2 0 0 .9-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c2.4-1.5 3.3-1.2 3.3-1.2.6 1.6.2 2.9.1 3.2.7.9 1.1 2 1.1 3.3 0 4.6-2.8 5.6-5.5 5.9.4.3.8 1 .8 2v3c0 .4.2.7.8.6A12 12 0 0 0 12 .5z"
+                                        fill="#cfefff" />
+                                </svg>
+                            </a>
+
+                            <!-- LinkedIn -->
+                            <a href="https://www.linkedin.com/in/akhilesh2004"
+                                target="_blank" aria-label="LinkedIn">
+                                <svg width="36" height="36" viewBox="0 0 24 24"
+                                    fill="none">
+                                    <rect width="24" height="24" rx="7"
+                                        fill="rgba(255,255,255,0.02)"></rect>
+                                    <path
+                                        d="M6.5 9h3v9h-3V9zM8 6.75a1.75 1.75 0 110-3.5 1.75 1.75 0 010 3.5zM14 9c2.1 0 3.5 1.1 3.5 3.4V18h-3v-5.2c0-1.2-.4-1.6-1.1-1.6-.6 0-1 .4-1.2.8-.1.2-.1.5-.1.8V18h-3V9h3v1.2c.4-.7 1.4-1.2 2.7-1.2z"
+                                        fill="#cfefff" />
+                                </svg>
+                            </a>
+
+                            <!-- Instagram -->
+                            <a
+                                href="https://www.instagram.com/national_security_blackwing"
+                                target="_blank" aria-label="Instagram">
+                                <svg width="36" height="36" viewBox="0 0 24 24"
+                                    fill="none">
+                                    <rect width="24" height="24" rx="7"
+                                        fill="rgba(255,255,255,0.04)"></rect>
+                                    <path
+                                        d="M12 7.2c-2.6 0-4.8 2.1-4.8 4.8s2.1 4.8 4.8 4.8 4.8-2.1 4.8-4.8S14.6 7.2 12 7.2zm0 7.8c-1.7 0-3-1.3-3-3s1.3-3 3-3 3 1.3 3 3-1.3 3-3 3zm4.9-8.5c0 .6-.5 1.1-1.1 1.1-.6 0-1-.5-1-1.1s.4-1.1 1-1.1c.6-.1 1.1.4 1.1 1.1z"
+                                        fill="#cfefff" />
+                                    <path
+                                        d="M12 3.2c-1.6 0-1.8 0-2.4.1-.6.1-1.1.2-1.6.4-.5.2-.9.5-1.3.9-.4.4-.7.8-.9 1.3-.2.5-.3 1-.4 1.6-.1.6-.1.8-.1 2.4s0 1.8.1 2.4c.1.6.2 1.1.4 1.6.2.5.5.9.9 1.3.4.4.8.7 1.3.9.5.2 1 .3 1.6.4.6.1.8.1 2.4.1s1.8 0 2.4-.1c.6-.1 1.1-.2 1.6-.4.5-.2.9-.5 1.3-.9.4-.4.7-.8.9-1.3.2-.5.3-1 .4-1.6.1-.6.1-.8.1-2.4s0-1.8-.1-2.4c-.1-.6-.2-1.1-.4-1.6-.2-.5-.5-.9-.9-1.3-.4-.4-.8-.7-1.3-.9-.5-.2-1-.3-1.6-.4-.6-.1-.8-.1-2.4-.1z"
+                                        stroke="#cfefff" stroke-width="1.2"
+                                        fill="none" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+
+        </main>
+
+        <script>
+    // Reading time
+    (function(){
+      const article = document.getElementById('article');
+      const words = article.innerText.trim().split(/\s+/).length;
+      const mins = Math.max(1, Math.round(words/220));
+      document.getElementById('reading-time').innerText = mins + ' min read';
+    })();
+
+    // Reveal on scroll
+    (function(){
+      const observer = new IntersectionObserver((entries)=>{
+        entries.forEach(e=>{
+          if(e.isIntersecting) e.target.classList.add('in-view');
+        });
+      }, {threshold:0.08});
+      document.querySelectorAll('.fade-up').forEach(el=>observer.observe(el));
+    })();
+
+    // Smooth anchor scroll
+    (function(){
+      document.querySelectorAll('a[href^="#"]').forEach(a=>{
+        a.addEventListener('click', (ev)=>{
+          const href = a.getAttribute('href');
+          if(href && href.startsWith('#')){
+            ev.preventDefault();
+            const el = document.querySelector(href);
+            if(el) el.scrollIntoView({behavior:'smooth',block:'center'});
+            history.replaceState && history.replaceState(null, '', href);
+          }
+        });
+      });
+    })();
+
+    // Subscribe button (light demo, non-blocking)
+    (function(){
+      const btn = document.getElementById('subscribe-btn');
+      btn && btn.addEventListener('click', ()=>{
+        const e = document.getElementById('newsletter-email');
+        const val = e && e.value && e.value.trim();
+        if(!val || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)){
+          e && (e.style.borderColor = '#ff6b6b');
+          btn.innerText = 'Enter valid email';
+          setTimeout(()=>{ btn.innerText = 'Subscribe'; e && (e.style.borderColor='rgba(255,255,255,0.04)') },1800);
+          return;
+        }
+        // Demo success animation
+        btn.innerText = 'Subscribed ✓';
+        btn.style.opacity = '0.9';
+        setTimeout(()=>{ btn.innerText = 'Subscribe'; e.value=''; },2200);
+      });
+    })();
+  </script>
+    </body>
+</html>

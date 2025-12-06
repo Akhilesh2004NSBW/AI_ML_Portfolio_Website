@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title><!-- TITLE HERE --> — Akhilesh Pant</title>
+  <link rel="canonical" href="">
+  <style>
+    :root{--bg:#0a0a0a;--card:#0f0f10;--accent:#00eaff;--muted:#bfbfbf;--container:900px}
+    *{box-sizing:border-box;font-family:"Poppins",system-ui,Arial;color:#fff}
+    body{background:var(--bg);margin:0;padding:0;-webkit-font-smoothing:antialiased}
+    .container{max-width:var(--container);margin:80px auto;padding:20px}
+    .back{color:var(--muted);text-decoration:none;margin-bottom:12px;display:inline-block}
+    .hero{border-radius:12px;overflow:hidden;background:#0b0b0b;border:1px solid rgba(255,255,255,.03)}
+    .hero img{width:100%;height:360px;object-fit:cover;display:block}
+    .meta-row{display:flex;gap:12px;align-items:center;justify-content:space-between;padding:16px 0}
+    .title{font-size:36px;color:var(--accent);font-weight:700;margin:14px 0}
+    .meta{color:var(--muted);font-size:14px}
+    article{background:transparent;padding-top:18px;line-height:1.72;color:#ddd}
+    article p{margin:10px 0}
+    pre{background:#0b0b0c;padding:14px;border-radius:10px;overflow:auto;border:1px solid rgba(255,255,255,.03);font-family:ui-monospace,Menlo,monospace;font-size:13px}
+    .links{margin-top:18px;display:flex;gap:12px;flex-wrap:wrap}
+    .btn{background:var(--accent);color:#000;padding:9px 14px;border-radius:8px;text-decoration:none;font-weight:700}
+    .github-link{color:var(--muted);text-decoration:none;font-weight:600;padding:7px 10px;border-radius:8px;border:1px solid rgba(255,255,255,.04)}
+    @media (max-width:700px){
+      .hero img{height:220px}
+      .title{font-size:24px}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a class="back" href="../index.html">← Back to Articles</a>
+
+    <!-- HERO IMAGE -->
+    <div class="hero">
+      <img src="../assets/images/hero-ai.jpg" alt="Hero image for article">
+    </div>
+
+    <!-- TITLE + META -->
+    <h1 class="title">Article Title — Replace me</h1>
+
+    <div class="meta-row">
+      <div class="meta">
+        <span id="post-date">Nov 01, 2025</span> • <span id="reading-time">—</span>
+      </div>
+      <div class="meta">
+        Category: AI • Research
+      </div>
+    </div>
+
+    <!-- ACTIONS -->
+    <div class="links">
+      <a class="btn" href="#demo">Open Live Demo</a>
+      <a class="github-link" href="https://github.com/yourrepo" target="_blank">View on GitHub</a>
+    </div>
+
+    <!-- ARTICLE BODY -->
+    <article id="article">
+      <!-- START ARTICLE CONTENT: 
+           Replace everything in this <article> element with your content.
+           Use <h2>, <p>, <pre> for code blocks, <img> for inline figures.
+      -->
+      <h2>Introduction</h2>
+      <p>Write a strong opening paragraph describing the problem and your goals.</p>
+
+      <h3>Key goals</h3>
+      <ul>
+        <li>Goal 1 — robust perception</li>
+        <li>Goal 2 — explainability & trust</li>
+        <li>Goal 3 — efficient deployment</li>
+      </ul>
+
+      <h3>Example code</h3>
+      <pre><code>import numpy as np
+# sample snippet
+def predict(x, model):
+    return model.predict(x)</code></pre>
+
+      <p>More content... add images using <code>&lt;img src="../assets/images/your.jpg"&gt;</code></p>
+
+      <!-- END ARTICLE CONTENT -->
+    </article>
+
+    <footer class="main-footer">
+            <h3>Further Reading & Repositories</h3>
+
+            <p>
+                Explore the official documentation, live demos, and research
+                work behind the
+                AI systems I am developing—including Quantum Simulation,
+                AI-Based Biometric
+                Authentication, NLP Models, and Data Science pipelines.
+                Access detailed reports, notebooks, and fully reproducible
+                experiments
+                directly through my GitHub repositories.
+            </p>
+
+            <p>
+                Stay connected for upcoming releases, advanced ML tutorials,
+                security-oriented AI research, and experimental models.
+                Join the community on GitHub and follow my updates on LinkedIn.
+                More platforms (blog, newsletters, learning hub) coming soon.
+            </p>
+
+            <div class="footer-links">
+                <a href="#" target="_blank">Project Documentation</a>
+                <a href="#" target="_blank">AI Model Demos</a>
+                <a href="#" target="_blank">GitHub Repositories</a>
+                <a href="https://www.linkedin.com/in/akhilesh2004"
+                    target="_blank">LinkedIn</a>
+                <a href="https://github.com/Akhilesh2004NSBW"
+                    target="_blank">GitHub</a>
+                <a href="#" target="_blank">Research Updates</a>
+            </div>
+
+            <p class="copyright">
+                © 2025 Akhilesh Pant — AI Engineer • Machine Learning Specialist
+                • Research & Innovation
+            </p>
+        </footer>
+
+  </div>
+
+
+  
+  <script>
+    // Compute reading time (approx 200 words/min)
+    (function(){
+      const article = document.getElementById('article');
+      const words = article.innerText.trim().split(/\s+/).length;
+      const mins = Math.max(1, Math.round(words / 200));
+      document.getElementById('reading-time').innerText = mins + ' min read';
+    })();
+  </script>
+</body>
+</html>
