@@ -1,15 +1,42 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Akhilesh Pant — AI · ML · Cybersecurity Engineer</title>
-  <meta name="description" content="Portfolio of Akhilesh Pant: AI, ML, Cybersecurity — articles, research, projects, and technical systems.">
+    <head>
+         <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
 
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <title>Akhilesh Pant — AI · ML · Cybersecurity Engineer</title>
+    <meta name="description" content="Portfolio of Akhilesh Pant: AI, ML, Cybersecurity — articles, research, projects, and technical notes." />
+    <meta name="keywords" content="Akhilesh Pant, APX, AI engineer, machine learning engineer, cybersecurity engineer, research engineer, portfolio, articles, publications, ML projects" />
 
-  <style>
+    <!-- AUTHOR -->
+    <meta name="author" content="Akhilesh Pant" />
+
+    <!-- OPEN GRAPH (Social sharing) -->
+    <meta property="og:title" content="Akhilesh Pant — AI · ML · Cybersecurity Engineer" />
+    <meta property="og:description" content="Explore research, articles, projects, and technical engineering work by Akhilesh Pant." />
+    <meta property="og:image" content="https://apxai.vercel.app/assets/images/og-image.jpg" />
+    <meta property="og:url" content="https://apxai.vercel.app" />
+    <meta property="og:type" content="website" />
+
+    <!-- TWITTER CARD (Used also by WhatsApp & LinkedIn) -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Akhilesh Pant — AI · ML · Cybersecurity Engineer" />
+    <meta name="twitter:description" content="Explore research, articles, and technical engineering work by Akhilesh Pant." />
+    <meta name="twitter:image" content="https://apxai.vercel.app/assets/images/og-image.jpg" />
+
+    <!-- SITEMAP LINK -->
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+
+    <!-- CANONICAL URL -->
+    <link rel="canonical" href="https://apxai.vercel.app" />
+
+    <!-- FAVICON -->
+    <link rel="icon" href="assets/images/favicon.png">
+
+    <!-- GOOGLE FONT -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+</head>
+        <style>
     :root{
       --bg-900:#060607;
       --card:#07080a;
@@ -237,248 +264,387 @@
     }
 
   </style>
-</head>
-<body>
-  <!-- TOPBAR -->
-  <div class="topbar" role="banner" aria-label="Topbar">
-    <div class="brand" style="gap:12px;align-items:center">
-      <div class="logo">AP</div>
-      <div>
-        <div class="site-title">Akhilesh Pant (APX)</div>
-        <div style="font-size:12px;color:var(--muted)">AI · ML · Cybersecurity</div>
-      </div>
-    </div>
-
-    <nav class="navlinks" role="navigation" aria-label="top navigation">
-      <a href="#home">Home</a>
-      <a href="#articles">Articles</a>
-      <a href="#projects">Projects</a>
-      <a href="#research">Research</a>
-      <a href="#contact">Contact</a>
-      <a href="https://github.com/Akhilesh2004NSBW" target="_blank" rel="noopener">GitHub</a>
-    </nav>
-  </div>
-
-  <main class="container" role="main" aria-live="polite">
-
-    <!-- HERO -->
-    <section id="home" class="hero fade-up" aria-label="Hero">
-      <div class="hero-grid">
-        <div>
-          <div class="kicker">Research • Systems • Security</div>
-          <h1 class="title">Building practical AI & ML systems for real-world impact</h1>
-          <p class="subtitle">I design and ship AI systems — from reproducible research and large-scale synthetic data pipelines to ML production and cybersecurity tooling. My work focuses on robust, production-minded engineering and research that bridges theory and field-ready systems.</p>
-
-          <div class="hero-cta" role="group" aria-label="Primary CTAs">
-            <a class="btn" href="#articles">Read Articles</a>
-            <a class="btn secondary" href="https://github.com/Akhilesh2004NSBW" target="_blank" rel="noopener">View GitHub</a>
-            <a class="btn secondary" href="mailto:apx.codes@gmail.com">Contact</a>
-          </div>
-
-          <div style="display:flex;gap:12px;align-items:center;margin-top:18px;color:var(--muted);font-size:13px">
-            <div>Based in India · Open to collaborations</div>
-            <div>•</div>
-            <div>Available for research & consulting</div>
-          </div>
-        </div>
-
-        <!-- FEATURED (CLICKABLE) -->
-        <a href="articles/matrix.html" aria-label="Open Matrix article" style="text-decoration:none;color:inherit;">
-          <aside class="hero-right" aria-label="Featured article">
-            <img class="cover-img" src="assets/images/matrix.jpg" alt="Matrix — Ray Native orchestration" onerror="this.style.display='none'">
-            <div class="small-stat">
-              <div style="display:flex;flex-direction:column">
-                <div style="font-weight:800;color:#e8fbff">Featured</div>
-                <div style="color:var(--muted);font-size:13px">Matrix: Decentralized data pipelines • Nov 2025</div>
-              </div>
-              <div style="text-align:right;color:var(--muted);font-size:13px">Research • Systems</div>
+    </head>
+    <body>
+        <!-- TOPBAR -->
+        <div class="topbar" role="banner" aria-label="Topbar">
+            <div class="brand" style="gap:12px;align-items:center">
+                <div class="logo">AP</div>
+                <div>
+                    <div class="site-title">Akhilesh Pant (APX)</div>
+                    <div style="font-size:12px;color:var(--muted)">AI · ML ·
+                        Cybersecurity</div>
+                </div>
             </div>
-          </aside>
-        </a>
-      </div>
-    </section>
 
-    <!-- ARTICLES (carousel) -->
-    <section id="articles" class="fade-up articles-section" aria-labelledby="articles-title">
-      <h2 id="articles-title" class="section-title">Articles & Technical Notes</h2>
-
-      <div class="carousel-wrap" aria-hidden="false">
-        <button class="carousel-btn carousel-left" id="carousel-left" aria-label="Scroll left">&#10094;</button>
-
-        <div class="carousel-track" id="carousel-track" role="list">
-          <!-- card 1 -->
-          <article class="carousel-card" role="listitem">
-            <a href="articles/matrix.html" style="display:block;color:inherit">
-              <figure class="carousel-thumb"><img src="assets/images/matrix.jpg" alt="Matrix article"></figure>
-              <div class="carousel-meta">Research • Nov 2025 • 7 min</div>
-              <div class="carousel-title">Meta AI Introduces Matrix — Decentralized Synthetic Data Engine</div>
-              <div class="carousel-excerpt">Matrix is a distributed orchestration framework that scales multi-agent synthetic data generation.</div>
-            </a>
-          </article>
-
-          <!-- card 2 -->
-          <article class="carousel-card" role="listitem">
-            <a href="articles/Learn.html" style="display:block;color:inherit">
-              <figure class="carousel-thumb"><img src="assets/images/learn.jpg" alt="OPRL"></figure>
-              <div class="carousel-meta">AI • Oct 2025 • 8 min</div>
-              <div class="carousel-title">Online Process Reward Learning — Step-Level Rewards</div>
-              <div class="carousel-excerpt">How trajectory-level preferences can be transformed into dense reward signals for RL models.</div>
-            </a>
-          </article>
-
-          <!-- card 3 -->
-          <article class="carousel-card" role="listitem">
-            <a href="articles/ml_engineering_roadmap.html" style="display:block;color:inherit">
-              <figure class="carousel-thumb"><img src="assets/images/ml eng.jpg" alt="ML Engineering"></figure>
-              <div class="carousel-meta">ML Eng • Sep 2025 • 10 min</div>
-              <div class="carousel-title">ML Engineering Roadmap — Data, Models & Production</div>
-              <div class="carousel-excerpt">Everything you need to become a production-ready ML engineer.</div>
-            </a>
-          </article>
-
-          <!-- card 4 -->
-          <article class="carousel-card" role="listitem">
-            <a href="articles/cybersecurity_threats.html" style="display:block;color:inherit">
-              <figure class="carousel-thumb"><img src="assets/images/cyber.jpg" alt="Cybersecurity"></figure>
-              <div class="carousel-meta">Cybersecurity • Sep 2025 • 7 min</div>
-              <div class="carousel-title">Modern Cybersecurity Threats & National Security</div>
-              <div class="carousel-excerpt">Understanding cyber warfare, threat modeling, and national security implications.</div>
-            </a>
-          </article>
-
-          <!-- Add more article cards here the same way -->
+            <nav class="navlinks" role="navigation" aria-label="top navigation">
+                <a href="#home">Home</a>
+                <a href="#articles">Articles</a>
+                <a href="#projects">Projects</a>
+                <a href="#research">Research</a>
+                <a href="#contact">Contact</a>
+                <a href="https://github.com/Akhilesh2004NSBW" target="_blank"
+                    rel="noopener">GitHub</a>
+            </nav>
         </div>
 
-        <button class="carousel-btn carousel-right" id="carousel-right" aria-label="Scroll right">&#10095;</button>
-      </div>
-    </section>
+        <main class="container" role="main" aria-live="polite">
 
-    <!-- PROJECTS -->
-    <section id="projects" class="fade-up" style="margin-top:20px">
-      <h2 class="section-title">Selected Projects</h2>
-      <div class="projects-grid">
-        <div class="project-card">
-          <div class="project-title">Quantum State Simulation & Decoherence Engine</div>
-          <div class="project-desc">A pure Python simulator for quantum logic gates and qubit evolution; focused on educational clarity and mathematical fidelity.</div>
-          <div class="project-links" style="margin-top:10px;display:flex;gap:10px">
-            <a class="chip primary" href="https://github.com/Akhilesh2004NSBW/Qunatum-Computing" target="_blank" rel="noopener">GitHub</a>
-            <a class="chip" href="https://quantum-state-evolution-and-decoherence-3.onrender.com" target="_blank">Live Demo</a>
-          </div>
-        </div>
+            <!-- HERO -->
+            <section id="home" class="hero fade-up" aria-label="Hero">
+                <div class="hero-grid">
+                    <div>
+                        <div class="kicker">Research • Systems • Security</div>
+                        <h1 class="title">Building practical AI & ML systems for
+                            real-world impact</h1>
+                        <p class="subtitle">I design and ship AI systems — from
+                            reproducible research and large-scale synthetic data
+                            pipelines to ML production and cybersecurity
+                            tooling. My work focuses on robust,
+                            production-minded engineering and research that
+                            bridges theory and field-ready systems.</p>
 
-        <div class="project-card">
-          <div class="project-title">AI-Based Fingerprint Authentication</div>
-          <div class="project-desc">Biometric verification system with ML backend and web app — deployed demo and API for recognition & authentication.</div>
-          <div class="project-links" style="margin-top:10px;display:flex;gap:10px">
-            <a class="chip primary" href="https://github.com/Akhilesh2004NSBW/fingerprint-auth" target="_blank" rel="noopener">GitHub</a>
-            <a class="chip" href="https://ai-based-fingerprint-recognition-system.onrender.com" target="_blank">Live Demo</a>
-          </div>
-        </div>
+                        <div class="hero-cta" role="group"
+                            aria-label="Primary CTAs">
+                            <a class="btn" href="#articles">Read Articles</a>
+                            <a class="btn secondary"
+                                href="https://github.com/Akhilesh2004NSBW"
+                                target="_blank" rel="noopener">View GitHub</a>
+                            <a class="btn secondary"
+                                href="mailto:apx.codes@gmail.com">Contact</a>
+                        </div>
 
-        <div class="project-card">
-          <div class="project-title">SEO Article Generation Engine</div>
-          <div class="project-desc">FastAPI + transformer-based NLP pipeline that generates SEO-optimized drafts and content outlines.</div>
-          <div class="project-links" style="margin-top:10px;display:flex;gap:10px">
-            <a class="chip primary" href="https://github.com/Akhilesh2004NSBW/SEO_Article_Agent" target="_blank" rel="noopener">GitHub</a>
-          </div>
-        </div>
-      </div>
-    </section>
+                        <div
+                            style="display:flex;gap:12px;align-items:center;margin-top:18px;color:var(--muted);font-size:13px">
+                            <div>Based in India · Open to collaborations</div>
+                            <div>•</div>
+                            <div>Available for research & consulting</div>
+                        </div>
+                    </div>
 
-    <!-- RESEARCH -->
-    <section id="research" class="fade-up" style="margin-top:20px">
-      <h2 class="section-title">Research & Publications</h2>
-      <div class="research-grid">
-        <div class="research-card">
-          <a href="assets/docs/Blackwing's Stand on China-Pak-Bangladesh Axis-1.pdf" target="_blank" rel="noopener">
-            <img src="assets/images/nsbw 1.png" alt="NSBW report">
-          </a>
-          <div style="color:var(--muted);margin-top:6px">NSBW Strategic Report — Geopolitics & National Security</div>
-        </div>
+                    <!-- FEATURED (CLICKABLE) -->
+                    <a href="articles/matrix.html"
+                        aria-label="Open Matrix article"
+                        style="text-decoration:none;color:inherit;">
+                        <aside class="hero-right" aria-label="Featured article">
+                            <img class="cover-img"
+                                src="assets/images/matrix.jpg"
+                                alt="Matrix — Ray Native orchestration"
+                                onerror="this.style.display='none'">
+                            <div class="small-stat">
+                                <div style="display:flex;flex-direction:column">
+                                    <div
+                                        style="font-weight:800;color:#e8fbff">Featured</div>
+                                    <div
+                                        style="color:var(--muted);font-size:13px">Matrix:
+                                        Decentralized data pipelines • Nov
+                                        2025</div>
+                                </div>
+                                <div
+                                    style="text-align:right;color:var(--muted);font-size:13px">Research
+                                    • Systems</div>
+                            </div>
+                        </aside>
+                    </a>
+                </div>
+            </section>
 
-        <div class="research-card">
-          <a href="assets/docs/Socio-Political Factors Driving Terrorism in South Asia.pdf" target="_blank" rel="noopener">
-            <img src="assets/images/socio.jpg" alt="Paper thumbnail">
-          </a>
-          <div style="color:var(--muted);margin-top:6px">Socio-Political Factors Driving Terrorism in South Asia</div>
-        </div>
+            <!-- ARTICLES (carousel) -->
+            <section id="articles" class="fade-up articles-section"
+                aria-labelledby="articles-title">
+                <h2 id="articles-title" class="section-title">Articles &
+                    Technical Notes</h2>
 
-        <div class="research-card">
-          <a href="assets/docs/Geopolitical Context and Historical Roots of Terrorism.pdf" target="_blank" rel="noopener">
-            <img src="assets/images/tsa.jpg" alt="Paper thumbnail">
-          </a>
-          <div style="color:var(--muted);margin-top:6px">Geopolitical Context and Historical Roots of Terrorism</div>
-        </div>
+                <div class="carousel-wrap" aria-hidden="false">
+                    <button class="carousel-btn carousel-left"
+                        id="carousel-left"
+                        aria-label="Scroll left">&#10094;</button>
 
-        <!-- Add other research cards similarly -->
-      </div>
-    </section>
+                    <div class="carousel-track" id="carousel-track" role="list">
+                        <!-- card 1 -->
+                        <article class="carousel-card" role="listitem">
+                            <a href="articles/matrix.html"
+                                style="display:block;color:inherit">
+                                <figure class="carousel-thumb"><img
+                                        src="assets/images/matrix.jpg"
+                                        alt="Matrix article"></figure>
+                                <div class="carousel-meta">Research • Nov 2025 •
+                                    7 min</div>
+                                <div class="carousel-title">Meta AI Introduces
+                                    Matrix — Decentralized Synthetic Data
+                                    Engine</div>
+                                <div class="carousel-excerpt">Matrix is a
+                                    distributed orchestration framework that
+                                    scales multi-agent synthetic data
+                                    generation.</div>
+                            </a>
+                        </article>
 
-    <!-- CONTACT -->
-    <section id="contact" class="fade-up" style="margin-top:30px">
-      <h2 class="section-title">Get in touch</h2>
-      <div class="card contact-grid" style="padding:18px">
-        <div class="contact-item">
-          <div style="font-weight:800;color:#e8fbff">Email</div>
-          <div style="color:var(--muted);margin-top:6px"><a href="mailto:apx.codes@gmail.com">apx.codes@gmail.com</a></div>
-        </div>
+                        <!-- card 2 -->
+                        <article class="carousel-card" role="listitem">
+                            <a href="articles/Learn.html"
+                                style="display:block;color:inherit">
+                                <figure class="carousel-thumb"><img
+                                        src="assets/images/learn.jpg"
+                                        alt="OPRL"></figure>
+                                <div class="carousel-meta">AI • Oct 2025 • 8
+                                    min</div>
+                                <div class="carousel-title">Online Process
+                                    Reward Learning — Step-Level Rewards</div>
+                                <div class="carousel-excerpt">How
+                                    trajectory-level preferences can be
+                                    transformed into dense reward signals for RL
+                                    models.</div>
+                            </a>
+                        </article>
 
-        <div class="contact-item">
-          <div style="font-weight:800;color:#e8fbff">Phone / WhatsApp</div>
-          <div style="color:var(--muted);margin-top:6px"><a href="tel:+918477802902">+91 8477802902</a> · <a href="https://wa.me/918477802902" target="_blank" rel="noopener">Chat</a></div>
-        </div>
+                        <!-- card 3 -->
+                        <article class="carousel-card" role="listitem">
+                            <a href="articles/ml_engineering_roadmap.html"
+                                style="display:block;color:inherit">
+                                <figure class="carousel-thumb"><img
+                                        src="assets/images/ml eng.jpg"
+                                        alt="ML Engineering"></figure>
+                                <div class="carousel-meta">ML Eng • Sep 2025 •
+                                    10 min</div>
+                                <div class="carousel-title">ML Engineering
+                                    Roadmap — Data, Models & Production</div>
+                                <div class="carousel-excerpt">Everything you
+                                    need to become a production-ready ML
+                                    engineer.</div>
+                            </a>
+                        </article>
 
-        <div class="contact-item">
-          <div style="font-weight:800;color:#e8fbff">Social</div>
-          <div style="color:var(--muted);margin-top:6px">
-            <a href="https://www.linkedin.com/in/akhilesh2004" target="_blank" rel="noopener">LinkedIn</a> ·
-            <a href="https://github.com/Akhilesh2004NSBW" target="_blank" rel="noopener">GitHub</a> ·
-            <a href="https://www.instagram.com/national_security_blackwing/" target="_blank" rel="noopener">Instagram</a>
-          </div>
-        </div>
-      </div>
-    </section>
+                        <!-- card 4 -->
+                        <article class="carousel-card" role="listitem">
+                            <a href="articles/cybersecurity_threats.html"
+                                style="display:block;color:inherit">
+                                <figure class="carousel-thumb"><img
+                                        src="assets/images/cyber.jpg"
+                                        alt="Cybersecurity"></figure>
+                                <div class="carousel-meta">Cybersecurity • Sep
+                                    2025 • 7 min</div>
+                                <div class="carousel-title">Modern Cybersecurity
+                                    Threats & National Security</div>
+                                <div class="carousel-excerpt">Understanding
+                                    cyber warfare, threat modeling, and national
+                                    security implications.</div>
+                            </a>
+                        </article>
 
-    <!-- FOOTER -->
-    <footer class="main-footer" id="footer" role="contentinfo" aria-label="Footer">
-      <div class="footer-grid">
-        <div style="max-width:720px">
-          <h3 style="color:var(--accent);margin:0 0 8px">Explore my work</h3>
-          <p style="color:var(--muted);margin-top:6px">Demos, reproducible notebooks, and research reports—open-source by default. Browse projects, read technical write-ups, or get in touch for collaborations and research.</p>
+                        <!-- Add more article cards here the same way -->
+                    </div>
 
-          <div style="margin-top:14px;display:flex;gap:8px;flex-wrap:wrap">
-            <a class="chip" href="assets/docs/Socio-Political Factors Driving Terrorism in South Asia.pdf" target="_blank" rel="noopener">Report</a>
-            <a class="chip" href="https://github.com/Akhilesh2004NSBW/matrix" target="_blank" rel="noopener">Matrix Repo</a>
-            <a class="chip" href="https://github.com/Akhilesh2004NSBW" target="_blank" rel="noopener">All Repos</a>
-            <a class="chip" href="#" target="_blank" rel="noopener">Live Demos</a>
-          </div>
+                    <button class="carousel-btn carousel-right"
+                        id="carousel-right"
+                        aria-label="Scroll right">&#10095;</button>
+                </div>
+            </section>
 
-          <div class="copyright" style="margin-top:16px">© 2025 Akhilesh Pant — AI • ML • Cybersecurity • Research</div>
-        </div>
+            <!-- PROJECTS -->
+            <section id="projects" class="fade-up" style="margin-top:20px">
+                <h2 class="section-title">Selected Projects</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-title">Quantum State Simulation &
+                            Decoherence Engine</div>
+                        <div class="project-desc">A pure Python simulator for
+                            quantum logic gates and qubit evolution; focused on
+                            educational clarity and mathematical fidelity.</div>
+                        <div class="project-links"
+                            style="margin-top:10px;display:flex;gap:10px">
+                            <a class="chip primary"
+                                href="https://github.com/Akhilesh2004NSBW/Qunatum-Computing"
+                                target="_blank" rel="noopener">GitHub</a>
+                            <a class="chip"
+                                href="https://quantum-state-evolution-and-decoherence-3.onrender.com"
+                                target="_blank">Live Demo</a>
+                        </div>
+                    </div>
 
-        <div style="display:flex;flex-direction:column;gap:12px;align-items:stretch;min-width:240px">
-          <div style="display:flex;justify-content:space-between;align-items:center">
-            <div style="font-weight:800;color:#e8fbff">Subscribe</div>
-            <div style="color:var(--muted);font-size:13px">Stay updated</div>
-          </div>
+                    <div class="project-card">
+                        <div class="project-title">AI-Based Fingerprint
+                            Authentication</div>
+                        <div class="project-desc">Biometric verification system
+                            with ML backend and web app — deployed demo and API
+                            for recognition & authentication.</div>
+                        <div class="project-links"
+                            style="margin-top:10px;display:flex;gap:10px">
+                            <a class="chip primary"
+                                href="https://github.com/Akhilesh2004NSBW/fingerprint-auth"
+                                target="_blank" rel="noopener">GitHub</a>
+                            <a class="chip"
+                                href="https://ai-based-fingerprint-recognition-system.onrender.com"
+                                target="_blank">Live Demo</a>
+                        </div>
+                    </div>
 
-          <div style="display:flex;gap:8px">
-            <input id="newsletter-email" type="email" placeholder="example@gmail.com" aria-label="newsletter email" style="flex:1;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--muted)">
-            <button id="subscribe-btn" class="chip primary" style="cursor:pointer">Subscribe</button>
-          </div>
+                    <div class="project-card">
+                        <div class="project-title">SEO Article Generation
+                            Engine</div>
+                        <div class="project-desc">FastAPI + transformer-based
+                            NLP pipeline that generates SEO-optimized drafts and
+                            content outlines.</div>
+                        <div class="project-links"
+                            style="margin-top:10px;display:flex;gap:10px">
+                            <a class="chip primary"
+                                href="https://github.com/Akhilesh2004NSBW/SEO_Article_Agent"
+                                target="_blank" rel="noopener">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-          <div style="margin-top:8px;color:var(--muted);font-size:13px">Follow</div>
-          <div style="display:flex;gap:10px;margin-top:6px">
-            <a href="https://github.com/Akhilesh2004NSBW" target="_blank" rel="noopener" aria-label="GitHub">GitHub</a>
-            <a href="https://www.linkedin.com/in/akhilesh2004" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a>
-            <a href="https://www.instagram.com/national_security_blackwing" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
-          </div>
-        </div>
-      </div>
-    </footer>
-  </main>
+            <!-- RESEARCH -->
+            <section id="research" class="fade-up" style="margin-top:20px">
+                <h2 class="section-title">Research & Publications</h2>
+                <div class="research-grid">
+                    <div class="research-card">
+                        <a
+                            href="assets/docs/Blackwing's Stand on China-Pak-Bangladesh Axis-1.pdf"
+                            target="_blank" rel="noopener">
+                            <img src="assets/images/nsbw 1.png"
+                                alt="NSBW report">
+                        </a>
+                        <div style="color:var(--muted);margin-top:6px">NSBW
+                            Strategic Report — Geopolitics & National
+                            Security</div>
+                    </div>
 
-  <script>
+                    <div class="research-card">
+                        <a
+                            href="assets/docs/Socio-Political Factors Driving Terrorism in South Asia.pdf"
+                            target="_blank" rel="noopener">
+                            <img src="assets/images/socio.jpg"
+                                alt="Paper thumbnail">
+                        </a>
+                        <div
+                            style="color:var(--muted);margin-top:6px">Socio-Political
+                            Factors Driving Terrorism in South Asia</div>
+                    </div>
+
+                    <div class="research-card">
+                        <a
+                            href="assets/docs/Geopolitical Context and Historical Roots of Terrorism.pdf"
+                            target="_blank" rel="noopener">
+                            <img src="assets/images/tsa.jpg"
+                                alt="Paper thumbnail">
+                        </a>
+                        <div
+                            style="color:var(--muted);margin-top:6px">Geopolitical
+                            Context and Historical Roots of Terrorism</div>
+                    </div>
+
+                    <!-- Add other research cards similarly -->
+                </div>
+            </section>
+
+            <!-- CONTACT -->
+            <section id="contact" class="fade-up" style="margin-top:30px">
+                <h2 class="section-title">Get in touch</h2>
+                <div class="card contact-grid" style="padding:18px">
+                    <div class="contact-item">
+                        <div style="font-weight:800;color:#e8fbff">Email</div>
+                        <div style="color:var(--muted);margin-top:6px"><a
+                                href="mailto:apx.codes@gmail.com">apx.codes@gmail.com</a></div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div style="font-weight:800;color:#e8fbff">Phone /
+                            WhatsApp</div>
+                        <div style="color:var(--muted);margin-top:6px"><a
+                                href="tel:+918477802902">+91 8477802902</a> · <a
+                                href="https://wa.me/918477802902"
+                                target="_blank" rel="noopener">Chat</a></div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div style="font-weight:800;color:#e8fbff">Social</div>
+                        <div style="color:var(--muted);margin-top:6px">
+                            <a href="https://www.linkedin.com/in/akhilesh2004"
+                                target="_blank" rel="noopener">LinkedIn</a> ·
+                            <a href="https://github.com/Akhilesh2004NSBW"
+                                target="_blank" rel="noopener">GitHub</a> ·
+                            <a
+                                href="https://www.instagram.com/national_security_blackwing/"
+                                target="_blank" rel="noopener">Instagram</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FOOTER -->
+            <footer class="main-footer" id="footer" role="contentinfo"
+                aria-label="Footer">
+                <div class="footer-grid">
+                    <div style="max-width:720px">
+                        <h3 style="color:var(--accent);margin:0 0 8px">Explore
+                            my work</h3>
+                        <p style="color:var(--muted);margin-top:6px">Demos,
+                            reproducible notebooks, and research
+                            reports—open-source by default. Browse projects,
+                            read technical write-ups, or get in touch for
+                            collaborations and research.</p>
+
+                        <div
+                            style="margin-top:14px;display:flex;gap:8px;flex-wrap:wrap">
+                            <a class="chip"
+                                href="assets/docs/Socio-Political Factors Driving Terrorism in South Asia.pdf"
+                                target="_blank" rel="noopener">Report</a>
+                            <a class="chip"
+                                href="https://github.com/Akhilesh2004NSBW/matrix"
+                                target="_blank" rel="noopener">Matrix Repo</a>
+                            <a class="chip"
+                                href="https://github.com/Akhilesh2004NSBW"
+                                target="_blank" rel="noopener">All Repos</a>
+                            <a class="chip" href="#" target="_blank"
+                                rel="noopener">Live Demos</a>
+                        </div>
+
+                        <div class="copyright" style="margin-top:16px">© 2025
+                            Akhilesh Pant — AI • ML • Cybersecurity •
+                            Research</div>
+                    </div>
+
+                    <div
+                        style="display:flex;flex-direction:column;gap:12px;align-items:stretch;min-width:240px">
+                        <div
+                            style="display:flex;justify-content:space-between;align-items:center">
+                            <div
+                                style="font-weight:800;color:#e8fbff">Subscribe</div>
+                            <div style="color:var(--muted);font-size:13px">Stay
+                                updated</div>
+                        </div>
+
+                        <div style="display:flex;gap:8px">
+                            <input id="newsletter-email" type="email"
+                                placeholder="example@gmail.com"
+                                aria-label="newsletter email"
+                                style="flex:1;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--muted)">
+                            <button id="subscribe-btn" class="chip primary"
+                                style="cursor:pointer">Subscribe</button>
+                        </div>
+
+                        <div
+                            style="margin-top:8px;color:var(--muted);font-size:13px">Follow</div>
+                        <div style="display:flex;gap:10px;margin-top:6px">
+                            <a href="https://github.com/Akhilesh2004NSBW"
+                                target="_blank" rel="noopener"
+                                aria-label="GitHub">GitHub</a>
+                            <a href="https://www.linkedin.com/in/akhilesh2004"
+                                target="_blank" rel="noopener"
+                                aria-label="LinkedIn">LinkedIn</a>
+                            <a
+                                href="https://www.instagram.com/national_security_blackwing"
+                                target="_blank" rel="noopener"
+                                aria-label="Instagram">Instagram</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </main>
+
+        <script>
     // Reveal on scroll
     (function(){
       const observer = new IntersectionObserver((entries)=>{
@@ -578,5 +744,5 @@
     })();
 
   </script>
-</body>
+    </body>
 </html>
