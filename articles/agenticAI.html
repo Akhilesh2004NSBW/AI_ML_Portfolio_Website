@@ -1,0 +1,737 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <title>Agentic AI — The Future of Autonomous Intelligence — Akhilesh
+            Pant</title>
+        <meta name="description"
+            content="Agentic AI: an in-depth guide to autonomous agents — architecture, workflows, tools, applications and future directions.">
+
+        <!-- Google Font -->
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap"
+            rel="stylesheet">
+
+        <style>
+    :root{
+      --bg-900:#060607;
+      --card:#07080a;
+      --glass: rgba(255,255,255,0.03);
+      --muted: #bdbdbd;
+      --accent: #00eaff;
+      --accent-2: #7c5cff;
+      --glass-blur: 12px;
+      --max-width:1100px;
+      --radius:12px;
+      --text:#dfe9f3;
+      --muted-2:#98a0aa;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:
+        radial-gradient(1200px 600px at 8% 10%, rgba(0,234,255,0.03), transparent 8%),
+        radial-gradient(1000px 500px at 92% 85%, rgba(124,92,255,0.02), transparent 8%),
+        var(--bg-900);
+      color:var(--text);
+      font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.65;
+      -webkit-tap-highlight-color:transparent;
+      padding-bottom:80px;
+    }
+
+    a{color:var(--accent);text-decoration:none}
+    .container{max-width:var(--max-width);margin:64px auto;padding:28px;position:relative}
+
+    /* TOPBAR */
+    .topbar{
+      position:fixed;left:0;right:0;top:12px;margin:0 auto;max-width:var(--max-width);height:60px;
+      display:flex;align-items:center;justify-content:space-between;padding:10px 18px;
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:12px;border:1px solid rgba(255,255,255,0.04);
+      backdrop-filter: blur(6px);
+      box-shadow:0 8px 36px rgba(2,6,23,0.6);
+      z-index:40;
+    }
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{
+      width:46px;height:46px;border-radius:10px;
+      background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      display:flex;align-items:center;justify-content:center;font-weight:800;color:#002;box-shadow:0 8px 30px rgba(0,0,0,0.6);
+      font-family:monospace;font-size:16px;
+    }
+    .site-title{font-weight:700;color:#eaffff}
+    .navlinks{display:flex;gap:14px;align-items:center}
+    .navlinks a{font-size:14px;color:var(--muted);padding:8px 12px;border-radius:8px;transition:all .18s}
+    .navlinks a:hover{color:#001;background:linear-gradient(90deg,var(--accent),var(--accent-2))}
+
+    /* HERO */
+    .hero{
+      margin-top:84px;
+      border-radius:14px;
+      overflow:hidden;
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border:1px solid rgba(255,255,255,0.03);
+      backdrop-filter: blur(var(--glass-blur));
+      display:grid;
+      grid-template-columns: 1fr 360px;
+      gap:20px;padding:26px;
+      align-items:center;
+    }
+    @media (max-width:960px){ .hero{grid-template-columns:1fr} .hero-right{order:2} }
+
+    .hero-left{padding:6px 8px}
+    .kicker{font-size:13px;color:var(--muted);display:flex;gap:8px;align-items:center}
+    .title{font-size:28px;color:var(--accent);margin:12px 0 8px;font-weight:800;letter-spacing:-0.4px}
+    .subtitle{color:var(--muted);margin-bottom:12px}
+    .hero-cta{display:flex;gap:12px;margin-top:12px;flex-wrap:wrap}
+    .btn{
+      display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:10px;font-weight:700;
+      background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#002;box-shadow:0 8px 30px rgba(0,234,255,0.06);
+      border: none;cursor:pointer;transition:transform .15s ease;
+      text-decoration:none;
+    }
+    .btn.secondary{background:transparent;color:var(--accent);border:1px solid rgba(255,255,255,0.05)}
+    .btn:active{transform:translateY(1px)}
+
+    .hero-right{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.0));
+      border-radius:12px;padding:14px;border:1px solid rgba(255,255,255,0.03);
+      display:flex;flex-direction:column;gap:12px;align-items:stretch;
+      min-height:220px;
+    }
+
+    .cover-img{width:100%;height:180px;border-radius:10px;object-fit:cover;border:1px solid rgba(255,255,255,0.03)}
+    .small-stat{display:flex;gap:8px;align-items:center;justify-content:space-between;padding:8px 12px;background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);border-radius:10px;color:var(--muted);font-size:13px}
+
+    /* LAYOUT */
+    .layout{display:grid;grid-template-columns: 1fr 320px;gap:28px;margin-top:24px}
+    @media (max-width:1100px){ .layout{grid-template-columns:1fr} }
+
+    article{
+      background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
+      border-radius:12px;padding:22px;border:1px solid rgba(255,255,255,0.03);
+      backdrop-filter: blur(var(--glass-blur));
+      color: var(--text);
+    }
+
+    article h2{color:var(--accent);font-size:20px;margin-top:18px}
+    article h3{color:var(--accent-2);font-size:16px;margin-top:16px}
+    article h4{color:#dbe9ff;font-size:15px;margin-top:10px}
+    article p{font-size:15px;color:#e6eef8}
+    article ol{padding-left:18px;margin-top:6px}
+    article pre{background:#071018;padding:12px;border-radius:8px;overflow:auto;color:#d8f8ff}
+
+    /* highlight box */
+    .highlight{
+      border-radius:10px;padding:14px;margin:16px 0;border-left:4px solid var(--accent);
+      background:linear-gradient(180deg, rgba(0,234,255,0.02), rgba(124,92,255,0.01));
+      color:#bbf7ff;
+    }
+
+    /* SIDEBAR */
+    .sidebar{
+      position:relative;top:0;display:flex;flex-direction:column;gap:12px;
+    }
+    .card{
+      border-radius:12px;padding:14px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
+      border:1px solid rgba(255,255,255,0.03);
+    }
+    .toc a{display:block;color:var(--muted);padding:8px;border-radius:8px;font-size:14px}
+    .toc a:hover{color:var(--accent)}
+    .stats{display:flex;gap:8px;flex-wrap:wrap}
+    .stat{flex:1;min-width:120px;padding:10px;border-radius:10px;background:rgba(255,255,255,0.01);text-align:center;color:var(--muted);font-size:13px}
+
+    /* FOOTER */
+    footer.main-footer{
+      margin-top:36px;border-radius:12px;padding:28px;border:1px solid rgba(255,255,255,0.03);
+      background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
+      backdrop-filter: blur(10px);
+    }
+    footer .footer-grid{display:grid;grid-template-columns:1fr 360px;gap:20px;align-items:start}
+    @media (max-width:900px){ footer .footer-grid{grid-template-columns:1fr} }
+
+    .footer-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+    .chip{padding:8px 12px;border-radius:999px;background:transparent;border:1px solid rgba(255,255,255,0.04);font-weight:700;color:var(--muted)}
+    .chip.primary{border-color:transparent;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#001;text-shadow:none}
+    .socials{display:flex;gap:10px;margin-top:12px}
+
+    .copyright{color:var(--muted);font-size:13px;margin-top:12px}
+
+    /* micro animations */
+    .fade-up{opacity:0;transform:translateY(8px);transition:all .6s cubic-bezier(.2,.9,.2,1)}
+    .in-view{opacity:1;transform:translateY(0)}
+    .glow{box-shadow:0 10px 30px rgba(0,234,255,0.06), inset 0 -6px 30px rgba(124,92,255,0.02)}
+
+    /* small screens */
+    @media (max-width:600px){
+      .title{font-size:20px}
+      .navlinks{display:none}
+      .container{padding:16px;margin:64px auto}
+      .topbar{left:12px;right:12px}
+    }
+  </style>
+    </head>
+    <body>
+
+        <!-- top nav -->
+        <div class="topbar" role="banner" aria-label="Site topbar">
+            <div class="brand">
+                <div class="logo">AP</div>
+                <div>
+                    <div class="site-title">Akhilesh Pant</div>
+                    <div style="font-size:12px;color:var(--muted)">AI · ML ·
+                        Research</div>
+                </div>
+            </div>
+
+            <nav class="navlinks" role="navigation" aria-label="top navigation">
+                <a href="/index.html">Home</a>
+                <a href="/#articles">Articles</a>
+                <a href="/#projects">Projects</a>
+                <a href="/#research">Research</a>
+                <a href="/#contact">Contact</a>
+                <a href="https://github.com/Akhilesh2004NSBW" target="_blank"
+                    rel="noopener">GitHub</a>
+            </nav>
+        </div>
+
+        <main class="container" role="main">
+            <div class="hero fade-up" id="hero" aria-labelledby="article-title">
+                <div class="hero-left">
+                    <div class="kicker">Research • Agents • Systems</div>
+                    <h1 class="title" id="article-title">Agentic AI: The Future
+                        of Autonomous Intelligence</h1>
+                    <div class="subtitle">A complete, in-depth guide to agentic
+                        systems — architecture, workflows, core components,
+                        applications, and future directions.</div>
+
+                    <div style="display:flex;gap:12px;align-items:center"
+                        class="hero-cta">
+                        <a class="btn" href="#article">Read Guide</a>
+                        <a class="btn secondary"
+                            href="https://github.com/Akhilesh2004NSBW/500-AI-Agents-Projects"
+                            target="_blank" rel="noopener">View Repos</a>
+                    </div>
+
+                    <div
+                        style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap">
+                        <div
+                            style="color:var(--muted);font-size:13px">Published:
+                            Nov 2025</div>
+                        <div style="color:var(--muted);font-size:13px"
+                            id="reading-time">—</div>
+                        <div style="color:var(--muted);font-size:13px">Category:
+                            AI • Agentic Systems</div>
+                    </div>
+
+                </div>
+
+                <aside class="hero-right">
+                    <img class="cover-img"
+                        src="../assets/images/agenticAI.jpg"
+                        alt="Agentic AI illustration"
+                        onerror="this.style.display='none'">
+                    <div class="small-stat">
+                        <div style="display:flex;flex-direction:column">
+                            <div
+                                style="font-weight:800;color:#e8fbff">Core</div>
+                            <div
+                                style="color:var(--muted);font-size:13px">Reasoning
+                                • Planning • Execution • Memory •
+                                Reflection</div>
+                        </div>
+                        <div
+                            style="text-align:right;color:var(--muted);font-size:13px">Applications:
+                            Dev, Security, Defense</div>
+                    </div>
+                </aside>
+            </div>
+
+            <!-- main layout -->
+            <div class="layout">
+                <article id="article" class="fade-up" tabindex="0"
+                    role="article" aria-labelledby="article-title">
+                    <p>
+                        Artificial Intelligence has evolved from static,
+                        rule-based systems into dynamic, conversational Large
+                        Language Models (LLMs).
+                        The next revolution is Agentic AI — autonomous systems
+                        that understand goals, plan multi-step actions, run
+                        tools and APIs,
+                        self-evaluate, and operate continuously with minimal
+                        human input. This guide dives deep into definitions,
+                        architecture,
+                        workflows, practical applications and what the future
+                        holds for agentic systems.
+                    </p>
+
+                    <h2>1. What Is Agentic AI? (The Most Precise
+                        Definition)</h2>
+                    <p>
+                        Agentic AI is an AI system designed to operate
+                        autonomously by combining reasoning, tool usage, memory,
+                        and decision-making
+                        to accomplish end-to-end tasks with minimal human input.
+                        Unlike classical AI models that respond only when
+                        prompted,
+                        agentic AI can take initiative, infer hidden intentions,
+                        break large tasks into sub-tasks, execute actions
+                        intelligently,
+                        evaluate results and refine behavior — effectively
+                        functioning more like a human assistant than a static
+                        algorithm.
+                    </p>
+
+                    <h2>2. Why Is Agentic AI So Revolutionary?</h2>
+                    <p>
+                        Agentic AI marks the transition from language models to
+                        autonomous cognitive systems. It moves systems from
+                        "reply machines"
+                        to "digital operators" capable of achieving outcomes,
+                        managing workflows, and integrating with external
+                        services and tools.
+                    </p>
+
+                    <h3>2.1 From Conversation to Action</h3>
+                    <p>
+                        Traditional LLMs give answers. Agentic AI achieves
+                        outcomes. For example, given “I am preparing for SSB in
+                        Allahabad,” an
+                        agentic system can proactively find travel options,
+                        check timetables, recommend hotels near the SSB center,
+                        assemble a full
+                        itinerary, surface contact numbers and map transport —
+                        leaving you to choose rather than doing each search
+                        manually.
+                    </p>
+
+                    <h3>2.2 Proactive Intelligence</h3>
+                    <p>
+                        Agentic AI predicts next steps, identifies missing
+                        details, resolves ambiguities and continues tasks
+                        independently — behaving
+                        like a real team member rather than an assistant that
+                        waits for instructions.
+                    </p>
+
+                    <h3>2.3 Multi-step Planning</h3>
+                    <p>
+                        Agents use advanced reasoning frameworks (Chain of
+                        Thought, Tree of Thoughts, Graph of Thoughts, ReAct,
+                        Planning Transformers)
+                        to generate multi-step execution plans that mirror
+                        project workflows and can adapt dynamically as new
+                        information arrives.
+                    </p>
+
+                    <h3>2.4 Tool Execution</h3>
+                    <p>
+                        Agentic systems can interact with web browsers,
+                        databases, APIs, scripts, cloud platforms and robotic
+                        controllers — converting
+                        abstract plans into concrete actions inside digital
+                        environments.
+                    </p>
+
+                    <h2>3. Core Architecture of Agentic AI (Deep Technical
+                        Breakdown)</h2>
+                    <p>
+                        Agentic AI systems typically have five major components:
+                        Reasoning Engine, Task Planning Module, Action & Tool
+                        Interface Layer,
+                        Memory Layer, and Reflection + Self-Correction Engine.
+                        Each part is essential for reliable autonomy.
+                    </p>
+
+                    <h3>3.1 Reasoning Engine (LLM/SLM/RLM)</h3>
+                    <p>
+                        The central brain responsible for logical reasoning,
+                        abstraction, task decomposition, hypothesis generation
+                        and error evaluation.
+                        Modern models optimized for reasoning (e.g.,
+                        reasoning-specialized LLMs) are used to produce
+                        coherent, multi-step plans and critiques.
+                    </p>
+
+                    <h3>3.2 Task Planning Module</h3>
+                    <p>
+                        Converts ambiguous goals into structured plans. Example:
+                        “Organize my trip to SSB Allahabad” becomes a sequence
+                        of steps (identify
+                        requirements, check transport, reserve lodging, arrange
+                        local transit, produce itinerary). Algorithms include
+                        HTN, MCTS, ToT and
+                        Self-Reflection loops.
+                    </p>
+
+                    <h3>3.3 Action & Tool Interface Layer</h3>
+                    <p>
+                        This layer executes the agent's plans: making API calls,
+                        running scripts, querying databases, scraping web data
+                        and interacting
+                        with external services. Tool interfaces are modular so
+                        agents can be extended safely.
+                    </p>
+
+                    <h3>3.4 Memory Layer</h3>
+                    <p>
+                        Memory sustains context across sessions and tasks.
+                        Important memory types:
+                    </p>
+                    <ol>
+                        <li><strong>Episodic Memory</strong> — stores past
+                            conversation episodes for continuity.</li>
+                        <li><strong>Semantic Memory</strong> — factual knowledge
+                            stored in vector databases (FAISS, Pinecone,
+                            Milvus).</li>
+                        <li><strong>Procedural Memory</strong> — learned
+                            workflows, execution traces and reusable
+                            scripts.</li>
+                    </ol>
+
+                    <h3>3.5 Reflection + Self-Correction Engine</h3>
+                    <p>
+                        Agents must check their own work: did they miss steps,
+                        are results complete, are outputs valid? Self-correction
+                        uses critic-actor
+                        patterns, Reflexion-style loops and meta-reasoning to
+                        improve reliability.
+                    </p>
+
+                    <div class="highlight">
+                        <strong>Architecture takeaway:</strong> Separation of
+                        concerns (reasoning, planning, execution, memory,
+                        reflection) makes agents
+                        modular, debuggable and safer to deploy.
+                    </div>
+
+                    <h2>4. Complete Workflow of an Agent</h2>
+                    <p>Typical internal workflow:</p>
+                    <ol>
+                        <li><strong>Goal Understanding</strong> — infer user
+                            intent and constraints.</li>
+                        <li><strong>Task Decomposition</strong> — split goals
+                            into sub-tasks.</li>
+                        <li><strong>Planning</strong> — build a roadmap and
+                            ordering.</li>
+                        <li><strong>Tool Execution</strong> — perform API calls,
+                            run scripts, gather data.</li>
+                        <li><strong>Intermediate Reasoning</strong> — evaluate
+                            partial results and adjust.</li>
+                        <li><strong>Self-Reflection</strong> — verify
+                            correctness and completeness.</li>
+                        <li><strong>Memory Update</strong> — persist relevant
+                            state for continuity.</li>
+                        <li><strong>Final Output</strong> — deliver actionable,
+                            decision-ready results.</li>
+                    </ol>
+
+                    <h2>5. Practical Applications of Agentic AI</h2>
+                    <p>Agentic systems are already being integrated across
+                        industries:</p>
+
+                    <h3>5.1 Software Development</h3>
+                    <p>Auto-generate apps, debug code, create APIs, run tests,
+                        and deploy — accelerating development lifecycles.</p>
+
+                    <h3>5.2 Cybersecurity</h3>
+                    <p>Real-time threat analysis, automated penetration testing,
+                        vulnerability scanning and red-team simulations powered
+                        by agents.</p>
+
+                    <h3>5.3 Defense and National Security</h3>
+                    <p>
+                        Mission planning, surveillance interpretation, rapid
+                        intelligence synthesis, recon analysis and coordination
+                        of autonomous
+                        drones/robotics — agentic systems that support strategic
+                        decision-making at scale.
+                    </p>
+                    <p style="color:var(--muted);margin-top:6px"><em>Note:</em>
+                        deploy with strict operational controls,
+                        human-in-the-loop safeguards and clear rules of
+                        engagement for military applications.</p>
+
+                    <h3>5.4 Healthcare</h3>
+                    <p>Diagnostic agents, workflow automation, longitudinal
+                        patient management and clinical decision support.</p>
+
+                    <h3>5.5 Business & Enterprise Automation</h3>
+                    <p>Research agents, sales agents, meeting automation,
+                        pipeline orchestration — enabling 24×7 operations and
+                        automation at scale.</p>
+
+                    <h2>6. Types of Agentic AI Systems</h2>
+                    <p>
+                        Agentic systems vary in topology and capability:
+                    </p>
+                    <ul>
+                        <li><strong>Single Agents</strong> — single agent
+                            performs an end-to-end task.</li>
+                        <li><strong>Multi-Agent Systems</strong> — multiple
+                            specialized agents collaborate (research, planning,
+                            execution, evaluation).</li>
+                        <li><strong>Hierarchical Agents</strong> —
+                            supervisor-manager-worker structures that mirror
+                            organizations.</li>
+                    </ul>
+
+                    <h2>7. Frameworks for Building Agentic AI</h2>
+                    <p>
+                        The ecosystem includes LangGraph, OpenAI Agents API,
+                        AutoGen, CrewAI and custom LLM+Tooling stacks — each
+                        offering primitives
+                        for action execution, memory, coordination and safety
+                        controls.
+                    </p>
+
+                    <h2>8. The Future of Agentic AI</h2>
+                    <p>Agentic AI will reshape organizations and technology over
+                        the next decades:</p>
+                    <h4>8.1 Fully Autonomous AI Companies</h4>
+                    <p>Agents running HR, finance, ops and engineering with
+                        minimal human oversight.</p>
+
+                    <h4>8.2 AI-Powered Defense Infrastructure</h4>
+                    <p>Real-time intelligence agents handling monitoring, cyber
+                        operations and autonomous coordination.</p>
+
+                    <h4>8.3 Multi-Agent Societies</h4>
+                    <p>Large swarms of agents cooperating as digital
+                        ecosystems.</p>
+
+                    <h4>8.4 AI that Invents New AI</h4>
+                    <p>Recursive systems that design and optimize novel
+                        architectures and algorithms.</p>
+
+                    <h4>8.5 Real-World Autonomous Robotics</h4>
+                    <p>Agentic reasoning powering humanoid and mobile robots
+                        capable of complex missions.</p>
+
+                    <h2>9. Why Agentic AI Matters for Businesses and
+                        Developers</h2>
+                    <p>
+                        For businesses: cost savings, faster decisions,
+                        automation at scale and 24×7 operations.
+                        For engineers: high-demand roles, premium compensation
+                        and global opportunities. Agentic AI is a future-proof
+                        career path
+                        combining ML, systems engineering and product thinking.
+                    </p>
+
+                    <h2>10. Conclusion</h2>
+                    <p>
+                        Agentic AI is a new paradigm of intelligent autonomy —
+                        combining human-like reasoning, action execution, memory
+                        and self-reflection.
+                        It will redefine industries, careers, national security
+                        and the software development lifecycle. Those who
+                        understand and adopt
+                        agentic systems today will lead the next era of
+                        technological innovation.
+                    </p>
+
+                    <p style="margin-top:18px;color:var(--muted)">If you'd like,
+                        I can convert this guide into a printable brief (PDF), a
+                        slide deck, or produce supporting code snippets and
+                        architecture diagrams (memory schemas, ToT / MCTS
+                        examples, sample tool interfaces).</p>
+                </article>
+
+                <!-- sidebar -->
+                <aside class="sidebar fade-up" aria-labelledby="sidebar-title">
+                    <div class="card">
+                        <div
+                            style="display:flex;justify-content:space-between;align-items:center">
+                            <div>
+                                <div
+                                    style="font-size:13px;color:var(--muted)">Quick
+                                    links</div>
+                                <div style="font-weight:800;color:#e8fbff">Jump
+                                    to</div>
+                            </div>
+                            <div
+                                style="font-size:12px;color:var(--muted)">Agentic
+                                AI</div>
+                        </div>
+
+                        <div class="toc" style="margin-top:12px">
+                            <a href="#article">Intro</a>
+                            <a href="#article">What is Agentic AI?</a>
+                            <a href="#article">Core Architecture</a>
+                            <a href="#article">Applications</a>
+                            <a href="#footer">Resources</a>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div
+                            style="font-weight:800;color:#e8fbff;margin-bottom:8px">Metrics</div>
+                        <div class="stats">
+                            <div class="stat"><div
+                                    style="font-weight:800;color:#fff">5
+                                    layers</div><div
+                                    style="color:var(--muted);font-size:13px">Core
+                                    components</div></div>
+                            <div class="stat"><div
+                                    style="font-weight:800;color:#fff">Many</div><div
+                                    style="color:var(--muted);font-size:13px">Tool
+                                    integrations</div></div>
+                            <div class="stat"><div
+                                    style="font-weight:800;color:#fff">∞</div><div
+                                    style="color:var(--muted);font-size:13px">Use-cases</div></div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div
+                            style="font-weight:800;color:#e8fbff;margin-bottom:8px">Resources</div>
+                        <div style="color:var(--muted);font-size:14px">Starter
+                            libs & reading</div>
+                        <div
+                            style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap">
+                            <a class="chip primary"
+                                href="https://github.com/Akhilesh2004NSBW"
+                                target="_blank">My Repos</a>
+                            <a class="chip"
+                                href="https://www.langchain.com/langgraph"
+                                target="_blank">LangGraph</a>
+                            <a class="chip" href="https://platform.openai.com/docs/guides/agents"
+                                target="_blank">OpenAI Agents</a>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+
+            <!-- FOOTER -->
+            <footer id="footer" class="main-footer fade-up" role="contentinfo"
+                aria-label="Footer">
+                <div class="footer-grid">
+                    <div>
+                        <h3 style="color:var(--accent);margin:0 0 8px">Explore
+                            my work</h3>
+
+                        <p style="color:var(--muted);margin-top:6px">
+                            Demos, reproducible notebooks, and research
+                            reports—open-source first. Browse projects, read
+                            technical write-ups, or get in touch for
+                            collaborations.
+                        </p>
+
+                        <div
+                            style="margin-top:14px;display:flex;gap:8px;flex-wrap:wrap">
+
+                            <a class="chip"
+                                href="https://github.com/Akhilesh2004NSBW"
+                                target="_blank">All Repos</a>
+
+                            <a class="chip"
+                                href="https://arxiv.org/pdf/2505.10468"
+                                target="_blank">Papers</a>
+                        </div>
+
+                        <div class="copyright" style="margin-top:16px">
+                            © 2025 Akhilesh Pant — AI • ML • Research • Security
+                        </div>
+                    </div>
+
+                    <div
+                        style="display:flex;flex-direction:column;gap:12px;align-items:stretch">
+                        <div
+                            style="display:flex;justify-content:space-between;align-items:center">
+                            <div
+                                style="font-weight:800;color:#e8fbff">Subscribe</div>
+                            <div style="color:var(--muted);font-size:13px">Stay
+                                updated</div>
+                        </div>
+
+                        <div style="display:flex;gap:8px">
+                            <input id="newsletter-email" type="email"
+                                placeholder="your@email.com"
+                                aria-label="newsletter email"
+                                style="flex:1;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--muted)">
+                            <button id="subscribe-btn" class="chip primary"
+                                style="cursor:pointer">Subscribe</button>
+                        </div>
+
+                        <div
+                            style="margin-top:8px;color:var(--muted);font-size:13px">Follow</div>
+                        <div style="display:flex;gap:10px;margin-top:6px">
+                            <a href="https://github.com/Akhilesh2004NSBW"
+                                target="_blank" aria-label="GitHub">GitHub</a>
+                            <a href="https://www.linkedin.com/in/akhilesh2004"
+                                target="_blank"
+                                aria-label="LinkedIn">LinkedIn</a>
+                            <a
+                                href="https://www.instagram.com/national_security_blackwing?igsh=MXZyaTk3dmNldnlmOA=="
+                                target="_blank"
+                                aria-label="Instagram">Instagram</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </main>
+
+        <script>
+    // Reading time
+    (function(){
+      const article = document.getElementById('article');
+      if(!article) return;
+      const words = article.innerText.trim().split(/\s+/).length;
+      const mins = Math.max(1, Math.round(words/220));
+      const el = document.getElementById('reading-time');
+      if(el) el.innerText = mins + ' min read';
+    })();
+
+    // Reveal on scroll
+    (function(){
+      const observer = new IntersectionObserver((entries)=>{
+        entries.forEach(e=>{
+          if(e.isIntersecting) e.target.classList.add('in-view');
+        });
+      }, {threshold:0.08});
+      document.querySelectorAll('.fade-up').forEach(el=>observer.observe(el));
+    })();
+
+    // Smooth anchor scroll
+    (function(){
+      document.querySelectorAll('a[href^="#"]').forEach(a=>{
+        a.addEventListener('click', (ev)=>{
+          const href = a.getAttribute('href');
+          if(href.startsWith('#')){
+            ev.preventDefault();
+            const el = document.querySelector(href);
+            if(el) el.scrollIntoView({behavior:'smooth',block:'center'});
+            history.replaceState && history.replaceState(null, '', href);
+          }
+        });
+      });
+    })();
+
+    // Subscribe button (light demo)
+    (function(){
+      const btn = document.getElementById('subscribe-btn');
+      btn && btn.addEventListener('click', ()=>{
+        const e = document.getElementById('newsletter-email');
+        const val = e && e.value && e.value.trim();
+        if(!val || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)){
+          e && (e.style.borderColor = '#ff6b6b');
+          btn.innerText = 'Enter valid email';
+          setTimeout(()=>{ btn.innerText = 'Subscribe'; e && (e.style.borderColor='rgba(255,255,255,0.04)') },1800);
+          return;
+        }
+        // Demo success animation
+        btn.innerText = 'Subscribed ✓';
+        btn.style.opacity = '0.9';
+        setTimeout(()=>{ btn.innerText = 'Subscribe'; e.value=''; },2200);
+      });
+    })();
+  </script>
+    </body>
+</html>
